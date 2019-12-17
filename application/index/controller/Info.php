@@ -4,6 +4,7 @@ namespace app\index\controller;
 
 use app\admin\model\Article;
 use app\common\controller\Frontend;
+use think\Db;
 
 class Info extends Frontend
 {
@@ -18,6 +19,7 @@ class Info extends Frontend
         $page=$this->request->param("page",1);
         $page_size=$this->request->param("page_size",10);
         $offset=($page-1)*$page_size;
+
         $lists=$model->with(['articletype'])->where(['articletype.status'=>'显示'])->limit($offset,$page_size)->paginate($page_size,true);
         $this->assign('dataList',$lists);
         $this->assign('page',$lists->render());

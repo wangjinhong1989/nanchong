@@ -26,13 +26,13 @@
                     </h2>
                     <div class="row user-baseinfo">
 
-                        {foreach item='dataList' vo='item'}
+                        {volist name='dataList' id='item'}
 
                         <h1>
                         {$item['title']}
                         </h1>
                         <p>{$item['content']}</p>
-                        {/foreach}
+                        {/volist}
 
                         <hr>
                     </div>
