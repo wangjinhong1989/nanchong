@@ -4,7 +4,7 @@ namespace app\index\controller;
 
 use app\common\controller\Frontend;
 
-class Index extends Frontend
+class Info extends Frontend
 {
 
     protected $noNeedLogin = '*';
