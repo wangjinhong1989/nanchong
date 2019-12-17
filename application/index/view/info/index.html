@@ -32,7 +32,7 @@
                         {$item['title']}
                         </h1>
                         <p>{$item['description']}</p>
-                        <p>{datetime($item['create_time'])}</p>
+                        <p>{$item['create_time']|datetime}</p>
                         <p>{$item['read_count']}</p>
                         {/volist}
 
