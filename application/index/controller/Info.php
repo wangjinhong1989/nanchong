@@ -2,6 +2,7 @@
 
 namespace app\index\controller;
 
+use app\admin\model\Article;
 use app\common\controller\Frontend;
 
 class Info extends Frontend
@@ -13,6 +14,13 @@ class Info extends Frontend
 
     public function index()
     {
+        $model=new Article();
+        $page=$this->request->param("page",1);
+        $page_size=$this->request->param("page_size",10);
+        $offset=($page-1)*$page_size;
+        $lists=$model->where(['status'=>'显示'])->limit($offset,$page_size)->paginate($page_size,true);
+        $this->assign('dataList',$lists);
+        $this->assign('page',$lists->render());
         return $this->view->fetch();
     }
 

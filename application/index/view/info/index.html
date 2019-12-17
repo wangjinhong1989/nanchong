@@ -26,10 +26,17 @@
                     </h2>
                     <div class="row user-baseinfo">
 
-                        <p>nihao</p>
-                        <p>nihao</p>
-                        <p>nihao</p>
+                        {foreach item='dataList' vo='item'}
+
+                        <h1>
+                        {$item['title']}
+                        </h1>
+                        <p>{$item['content']}</p>
+                        {/foreach}
+
+                        <hr>
                     </div>
+                    {$page}
                 </div>
             </div>
         </div>
