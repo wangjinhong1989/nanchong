@@ -712,3 +712,408 @@
 [ sql ] [ SQL ] SELECT * FROM `fa_auth_group` WHERE  `status` = 'normal' [ RunTime:0.000222s ]
 [ sql ] [ SQL ] SELECT * FROM `fa_auth_group` WHERE  `id` IN (1,2,3,4,5,6) [ RunTime:0.000206s ]
 [ sql ] [ SQL ] SELECT * FROM `fa_auth_group` WHERE  `id` IN (1,2,3,5,4,6) [ RunTime:0.000227s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:36:38+08:00 ] 118.116.15.151 GET www.luxiaogui.cn/admin1.php/auth/group/edit/ids/6?dialog=1
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000420s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.000717s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='1' and ag.status='normal' ) [ RunTime:0.000326s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000641s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.000449s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group` [ RunTime:0.000843s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_auth_group` WHERE  `status` = 'normal' [ RunTime:0.000266s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_auth_group` WHERE  `id` IN (1,2,3,4,5,6) [ RunTime:0.000204s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_auth_group` WHERE  `id` = 6 LIMIT 1 [ RunTime:0.000262s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:36:38+08:00 ] 118.116.15.151 POST www.luxiaogui.cn/admin1.php/auth/group/roletree
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000551s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.000939s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='1' and ag.status='normal' ) [ RunTime:0.000455s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group` [ RunTime:0.000747s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_auth_group` WHERE  `status` = 'normal' [ RunTime:0.000286s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_auth_group` WHERE  `id` IN (1,2,3,4,5,6) [ RunTime:0.000319s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_auth_group` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000442s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_auth_group` WHERE  `id` = 6 LIMIT 1 [ RunTime:0.000188s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000761s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_auth_rule` ORDER BY `weigh` DESC,`id` ASC [ RunTime:0.000683s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_auth_group` WHERE  `id` IN (1,2,3,4,5,6) [ RunTime:0.000430s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_admin_log` [ RunTime:0.010406s ]
+[ sql ] [ SQL ] INSERT INTO `fa_admin_log` (`title` , `content` , `url` , `admin_id` , `username` , `useragent` , `ip` , `createtime`) VALUES ('' , '{\"id\":\"6\",\"pid\":\"1\"}' , '/admin1.php/auth/group/roletree' , 1 , 'admin' , 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36' , '118.116.15.151' , 1576560998) [ RunTime:0.006812s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:37:00+08:00 ] 118.116.15.151 POST www.luxiaogui.cn/admin1.php/auth/group/edit/ids/6?dialog=1
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000464s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.000908s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='1' and ag.status='normal' ) [ RunTime:0.000307s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000575s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.000390s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group` [ RunTime:0.000777s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_auth_group` WHERE  `status` = 'normal' [ RunTime:0.000239s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_auth_group` WHERE  `id` IN (1,2,3,4,5,6) [ RunTime:0.000211s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_auth_group` WHERE  `id` = 6 LIMIT 1 [ RunTime:0.000284s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_auth_group` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000163s ]
+[ sql ] [ SQL ] UPDATE `fa_auth_group`  SET `rules`='92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,111,113,117,119,110,116',`updatetime`=1576561020  WHERE  `id` = 6 [ RunTime:0.013160s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_admin_log` [ RunTime:0.000826s ]
+[ sql ] [ SQL ] INSERT INTO `fa_admin_log` (`title` , `content` , `url` , `admin_id` , `username` , `useragent` , `ip` , `createtime`) VALUES ('权限管理 角色组 编辑' , '{\"dialog\":\"1\",\"__token__\":\"5cc1269a2a897b5eead94520c4d75f00\",\"row\":{\"rules\":\"92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,111,113,117,119,110,116\",\"pid\":\"1\",\"name\":\"\\u7ba1\\u7406\\u5458\",\"status\":\"normal\"},\"ids\":\"6\"}' , '/admin1.php/auth/group/edit/ids/6?dialog=1' , 1 , 'admin' , 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36' , '118.116.15.151' , 1576561020) [ RunTime:0.005932s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:37:00+08:00 ] 118.116.15.151 GET www.luxiaogui.cn/admin1.php/auth/group/index?sort=id&order=desc&_=1576560833446
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000511s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.000840s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='1' and ag.status='normal' ) [ RunTime:0.000373s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000784s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.000420s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group` [ RunTime:0.000812s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_auth_group` WHERE  `status` = 'normal' [ RunTime:0.000215s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_auth_group` WHERE  `id` IN (1,2,3,4,5,6) [ RunTime:0.000209s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_auth_group` WHERE  `id` IN (1,2,3,5,4,6) [ RunTime:0.000242s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:37:11+08:00 ] 118.116.15.151 GET www.luxiaogui.cn/admin1.php/contact?addtabs=1
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000577s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.000759s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='1' and ag.status='normal' ) [ RunTime:0.000328s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000649s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.000522s ]
+[ sql ] [ SQL ] SELECT `title`,`remark` FROM `fa_auth_rule` WHERE  `name` = 'contact' LIMIT 1 [ RunTime:0.000684s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:37:12+08:00 ] 118.116.15.151 GET www.luxiaogui.cn/admin1.php/contact/index?addtabs=1&sort=id&order=desc&offset=0&limit=10&filter=%7B%7D&op=%7B%7D&_=1576561023704
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001893s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.000897s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='1' and ag.status='normal' ) [ RunTime:0.000286s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.028238s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.000507s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_contact` [ RunTime:0.000820s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `fa_contact` ORDER BY `id` DESC LIMIT 1 [ RunTime:0.000273s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_contact` ORDER BY `id` DESC LIMIT 0,10 [ RunTime:0.000159s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:37:14+08:00 ] 118.116.15.151 GET www.luxiaogui.cn/admin1.php/contact/add?dialog=1
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000580s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.001045s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='1' and ag.status='normal' ) [ RunTime:0.000443s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000845s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.000573s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:37:20+08:00 ] 118.116.15.151 POST www.luxiaogui.cn/admin1.php/ajax/upload
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000491s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_attachment` [ RunTime:0.001073s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_attachment` WHERE  `url` = '/uploads/20191217/0ed6f7757d789b7bb721474b03b8d2eb.xls' LIMIT 1 [ RunTime:0.004197s ]
+[ sql ] [ SQL ] INSERT INTO `fa_attachment` (`admin_id` , `filesize` , `imagetype` , `mimetype` , `url` , `uploadtime` , `storage` , `sha1` , `extparam` , `createtime` , `updatetime`) VALUES (1 , 18432 , 'xls' , 'application/vnd.ms-excel' , '/uploads/20191217/0ed6f7757d789b7bb721474b03b8d2eb.xls' , 1576561040 , 'local' , 'caad3a079072d4d2306b64e8a58452354adb9eaa' , '{\"name\":\"\\u5408\\u540c\\u4e2a\\u6570\\u8868.xls\"}' , 1576561040 , 1576561040) [ RunTime:0.006758s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_admin_log` [ RunTime:0.001043s ]
+[ sql ] [ SQL ] INSERT INTO `fa_admin_log` (`title` , `content` , `url` , `admin_id` , `username` , `useragent` , `ip` , `createtime`) VALUES ('' , '{\"name\":\"\\u5408\\u540c\\u4e2a\\u6570\\u8868.xls\"}' , '/admin1.php/ajax/upload' , 1 , 'admin' , 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36' , '118.116.15.151' , 1576561040) [ RunTime:0.004808s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:37:36+08:00 ] 118.116.15.151 POST www.luxiaogui.cn/admin1.php/contact/add?dialog=1
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000602s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.000971s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='1' and ag.status='normal' ) [ RunTime:0.000408s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000797s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.000590s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_contact` [ RunTime:0.001022s ]
+[ sql ] [ SQL ] INSERT INTO `fa_contact` (`files` , `content` , `create_time` , `update_time`) VALUES ('/uploads/20191217/0ed6f7757d789b7bb721474b03b8d2eb.xls' , '<p>这是联系我们的内容</p>' , 1576561034 , 1576561034) [ RunTime:0.004103s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_admin_log` [ RunTime:0.001128s ]
+[ sql ] [ SQL ] INSERT INTO `fa_admin_log` (`title` , `content` , `url` , `admin_id` , `username` , `useragent` , `ip` , `createtime`) VALUES ('联系我们 添加' , '{\"dialog\":\"1\",\"row\":{\"files\":\"\\/uploads\\/20191217\\/0ed6f7757d789b7bb721474b03b8d2eb.xls\",\"content\":\"\\u8fd9\\u662f\\u8054\\u7cfb\\u6211\\u4eec\\u7684\\u5185\\u5bb9\",\"create_time\":\"2019-12-17 13:37:14\",\"update_time\":\"2019-12-17 13:37:14\"}}' , '/admin1.php/contact/add?dialog=1' , 1 , 'admin' , 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36' , '118.116.15.151' , 1576561056) [ RunTime:0.006077s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:37:37+08:00 ] 118.116.15.151 GET www.luxiaogui.cn/admin1.php/contact/index?addtabs=1&sort=id&order=desc&offset=0&limit=10&filter=%7B%7D&op=%7B%7D&_=1576561023705
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000511s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.000736s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='1' and ag.status='normal' ) [ RunTime:0.000294s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000588s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.000378s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_contact` [ RunTime:0.020478s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `fa_contact` ORDER BY `id` DESC LIMIT 1 [ RunTime:0.000457s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_contact` ORDER BY `id` DESC LIMIT 0,10 [ RunTime:0.000226s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:38:33+08:00 ] 118.116.15.151 GET www.luxiaogui.cn/admin1.php/contact?ref=addtabs
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000735s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.001005s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='1' and ag.status='normal' ) [ RunTime:0.000427s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000867s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.000641s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:38:33+08:00 ] 118.116.15.151 GET www.luxiaogui.cn/admin1.php/index/index
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000641s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.000985s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='1' and ag.status='normal' ) [ RunTime:0.000377s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000760s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.000555s ]
+[ sql ] [ SQL ] SELECT `name`,`pid` FROM `fa_auth_rule` WHERE  `status` = 'normal'  AND `ismenu` = 0  AND `name` LIKE '%/index' [ RunTime:0.000577s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:38:33+08:00 ] 118.116.15.151 GET www.luxiaogui.cn/admin1.php/contact?addtabs=1
+[ sql ] [ DB ] CONNECT:[ UseTime:0.007205s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.000752s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='1' and ag.status='normal' ) [ RunTime:0.000320s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.002620s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.000761s ]
+[ sql ] [ SQL ] SELECT `title`,`remark` FROM `fa_auth_rule` WHERE  `name` = 'contact' LIMIT 1 [ RunTime:0.011736s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:38:33+08:00 ] 118.116.15.151 GET www.luxiaogui.cn/admin1.php/dashboard?addtabs=1
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011110s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.001104s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='1' and ag.status='normal' ) [ RunTime:0.000419s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000847s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.000651s ]
+[ sql ] [ SQL ] SELECT `title`,`remark` FROM `fa_auth_rule` WHERE  `name` = 'dashboard' LIMIT 1 [ RunTime:0.021598s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:38:33+08:00 ] 118.116.15.151 GET www.luxiaogui.cn/admin1.php/contact/index?addtabs=1&sort=id&order=desc&offset=0&limit=10&filter=%7B%7D&op=%7B%7D&_=1576561105429
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000517s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.000870s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='1' and ag.status='normal' ) [ RunTime:0.000369s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000653s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.000404s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_contact` [ RunTime:0.000946s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `fa_contact` ORDER BY `id` DESC LIMIT 1 [ RunTime:0.000191s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_contact` ORDER BY `id` DESC LIMIT 0,10 [ RunTime:0.000169s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:38:34+08:00 ] 118.116.15.151 GET www.luxiaogui.cn/admin1.php/contact/index?addtabs=1&sort=id&order=desc&offset=0&limit=10&filter=%7B%7D&op=%7B%7D&_=1576561105430
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000740s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.002272s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='1' and ag.status='normal' ) [ RunTime:0.000384s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000755s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.000510s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_contact` [ RunTime:0.002229s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `fa_contact` ORDER BY `id` DESC LIMIT 1 [ RunTime:0.000246s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_contact` ORDER BY `id` DESC LIMIT 0,10 [ RunTime:0.000224s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:38:35+08:00 ] 118.116.15.151 GET www.luxiaogui.cn/admin1.php/about?addtabs=1
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000490s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.000773s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='1' and ag.status='normal' ) [ RunTime:0.000359s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000714s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.000594s ]
+[ sql ] [ SQL ] SELECT `title`,`remark` FROM `fa_auth_rule` WHERE  `name` = 'about' LIMIT 1 [ RunTime:0.000574s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:38:36+08:00 ] 118.116.15.151 GET www.luxiaogui.cn/admin1.php/about/index?addtabs=1&sort=id&order=desc&offset=0&limit=10&filter=%7B%7D&op=%7B%7D&_=1576561107667
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000550s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.000699s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='1' and ag.status='normal' ) [ RunTime:0.000330s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.002174s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.000575s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_about` [ RunTime:0.001158s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `fa_about` ORDER BY `id` DESC LIMIT 1 [ RunTime:0.000245s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_about` ORDER BY `id` DESC LIMIT 0,10 [ RunTime:0.000191s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:38:37+08:00 ] 118.116.15.151 GET www.luxiaogui.cn/admin1.php/about/add?dialog=1
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000530s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.000957s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='1' and ag.status='normal' ) [ RunTime:0.000428s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000940s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.000602s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:38:47+08:00 ] 118.116.15.151 POST www.luxiaogui.cn/admin1.php/about/add?dialog=1
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000545s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.000926s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='1' and ag.status='normal' ) [ RunTime:0.000368s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000729s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.000513s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_about` [ RunTime:0.000971s ]
+[ sql ] [ SQL ] INSERT INTO `fa_about` (`files` , `content` , `create_time` , `update_time`) VALUES ('/uploads/20191217/0ed6f7757d789b7bb721474b03b8d2eb.xls' , '<p>这是联系我的页面</p>' , 1576561117 , 1576561117) [ RunTime:0.000369s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_admin_log` [ RunTime:0.001078s ]
+[ sql ] [ SQL ] INSERT INTO `fa_admin_log` (`title` , `content` , `url` , `admin_id` , `username` , `useragent` , `ip` , `createtime`) VALUES ('关于我们 添加' , '{\"dialog\":\"1\",\"row\":{\"files\":\"\\/uploads\\/20191217\\/0ed6f7757d789b7bb721474b03b8d2eb.xls\",\"content\":\"\\u8fd9\\u662f\\u8054\\u7cfb\\u6211\\u7684\\u9875\\u9762\",\"create_time\":\"2019-12-17 13:38:37\",\"update_time\":\"2019-12-17 13:38:37\"}}' , '/admin1.php/about/add?dialog=1' , 1 , 'admin' , 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36' , '118.116.15.151' , 1576561127) [ RunTime:0.006334s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:38:47+08:00 ] 118.116.15.151 GET www.luxiaogui.cn/admin1.php/about/index?addtabs=1&sort=id&order=desc&offset=0&limit=10&filter=%7B%7D&op=%7B%7D&_=1576561107668
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000628s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.000756s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='1' and ag.status='normal' ) [ RunTime:0.000315s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000646s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.000414s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_about` [ RunTime:0.000785s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `fa_about` ORDER BY `id` DESC LIMIT 1 [ RunTime:0.000217s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_about` ORDER BY `id` DESC LIMIT 0,10 [ RunTime:0.000152s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:38:54+08:00 ] 118.116.15.151 GET www.luxiaogui.cn/admin1.php/about/edit/ids/1?dialog=1
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000565s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.000928s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='1' and ag.status='normal' ) [ RunTime:0.000369s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.033528s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.000481s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_about` [ RunTime:0.000833s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_about` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000236s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:43:59+08:00 ] 118.116.15.151 POST www.luxiaogui.cn/admin1.php/index/login?url=%2Fadmin1.php%2Fabout%3Fref%3Daddtabs
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002256s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_admin` [ RunTime:0.001693s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_admin` WHERE  `username` = 'manger' LIMIT 1 [ RunTime:0.004924s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_admin_log` [ RunTime:0.001148s ]
+[ sql ] [ SQL ] INSERT INTO `fa_admin_log` (`title` , `content` , `url` , `admin_id` , `username` , `useragent` , `ip` , `createtime`) VALUES ('登录' , '{\"url\":\"\\/admin1.php\\/about?ref=addtabs\",\"__token__\":\"367977712a11ebde9d16370c629bfa7f\",\"username\":\"manger\",\"captcha\":\"FBQA\"}' , '/admin1.php/index/login?url=%2Fadmin1.php%2Fabout%3Fref%3Daddtabs' , 0 , 'Unknown' , 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:70.0) Gecko/20100101 Firefox/70.0' , '118.116.15.151' , 1576561439) [ RunTime:0.009843s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:44:21+08:00 ] 118.116.15.151 POST www.luxiaogui.cn/admin1.php/index/login?url=%2Fadmin1.php%2Fabout%3Fref%3Daddtabs
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000452s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_admin_log` [ RunTime:0.000852s ]
+[ sql ] [ SQL ] INSERT INTO `fa_admin_log` (`title` , `content` , `url` , `admin_id` , `username` , `useragent` , `ip` , `createtime`) VALUES ('' , '{\"url\":\"\\/admin1.php\\/about?ref=addtabs\",\"__token__\":\"1e35765f8129a9cb797273a8451b7371\",\"username\":\"manager\",\"captcha\":\"Y4PF\"}' , '/admin1.php/index/login?url=%2Fadmin1.php%2Fabout%3Fref%3Daddtabs' , 0 , 'Unknown' , 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:70.0) Gecko/20100101 Firefox/70.0' , '118.116.15.151' , 1576561461) [ RunTime:0.006093s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:44:35+08:00 ] 118.116.15.151 POST www.luxiaogui.cn/admin1.php/index/login?url=%2Fadmin1.php%2Fabout%3Fref%3Daddtabs
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000451s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_admin` [ RunTime:0.000762s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_admin` WHERE  `username` = 'manager' LIMIT 1 [ RunTime:0.000324s ]
+[ sql ] [ SQL ] UPDATE `fa_admin`  SET `logintime`=1576561475,`loginip`='118.116.15.151',`token`='bf990a65-4dab-40c3-9b88-a40f5096bea0',`updatetime`=1576561475  WHERE  `id` = 2 [ RunTime:0.005542s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_admin_log` [ RunTime:0.001056s ]
+[ sql ] [ SQL ] INSERT INTO `fa_admin_log` (`title` , `content` , `url` , `admin_id` , `username` , `useragent` , `ip` , `createtime`) VALUES ('登录' , '{\"url\":\"\\/admin1.php\\/about?ref=addtabs\",\"__token__\":\"e86e51645fba1f1b691624d040cbd0ff\",\"username\":\"manager\",\"captcha\":\"2JFN\",\"keeplogin\":\"1\"}' , '/admin1.php/index/login?url=%2Fadmin1.php%2Fabout%3Fref%3Daddtabs' , 2 , 'manager' , 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:70.0) Gecko/20100101 Firefox/70.0' , '118.116.15.151' , 1576561475) [ RunTime:0.006554s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:44:35+08:00 ] 118.116.15.151 GET www.luxiaogui.cn/admin1.php/about?ref=addtabs
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000437s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.000794s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='2' and ag.status='normal' ) [ RunTime:0.000327s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000591s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal'  AND `id` IN (92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,111,113,117,119,110,116) [ RunTime:0.000412s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:44:35+08:00 ] 118.116.15.151 GET www.luxiaogui.cn/admin1.php/index/index
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000579s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.000952s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='2' and ag.status='normal' ) [ RunTime:0.000394s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000901s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal'  AND `id` IN (92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,111,113,117,119,110,116) [ RunTime:0.000582s ]
+[ sql ] [ SQL ] SELECT `name`,`pid` FROM `fa_auth_rule` WHERE  `status` = 'normal'  AND `ismenu` = 0  AND `name` LIKE '%/index' [ RunTime:0.000381s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:44:35+08:00 ] 118.116.15.151 GET www.luxiaogui.cn/admin1.php/about?addtabs=1
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000555s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.030898s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='2' and ag.status='normal' ) [ RunTime:0.000326s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000561s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal'  AND `id` IN (92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,111,113,117,119,110,116) [ RunTime:0.000381s ]
+[ sql ] [ SQL ] SELECT `title`,`remark` FROM `fa_auth_rule` WHERE  `name` = 'about' LIMIT 1 [ RunTime:0.000332s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:44:36+08:00 ] 118.116.15.151 GET www.luxiaogui.cn/admin1.php/articletype?addtabs=1
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000438s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.000688s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='2' and ag.status='normal' ) [ RunTime:0.000291s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000573s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal'  AND `id` IN (92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,111,113,117,119,110,116) [ RunTime:0.000405s ]
+[ sql ] [ SQL ] SELECT `title`,`remark` FROM `fa_auth_rule` WHERE  `name` = 'articletype' LIMIT 1 [ RunTime:0.000387s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:44:36+08:00 ] 118.116.15.151 GET www.luxiaogui.cn/admin1.php/about/index?addtabs=1&sort=id&order=desc&offset=0&limit=10&filter=%7B%7D&op=%7B%7D&_=1576561467685
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000415s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.000658s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='2' and ag.status='normal' ) [ RunTime:0.000312s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000549s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal'  AND `id` IN (92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,111,113,117,119,110,116) [ RunTime:0.000379s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_about` [ RunTime:0.000700s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `fa_about` ORDER BY `id` DESC LIMIT 1 [ RunTime:0.000174s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_about` ORDER BY `id` DESC LIMIT 0,10 [ RunTime:0.000141s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:44:36+08:00 ] 118.116.15.151 GET www.luxiaogui.cn/admin1.php/articletype/index?addtabs=1&sort=id&order=desc&offset=0&limit=10&filter=%7B%7D&op=%7B%7D&_=1576561468121
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000473s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.000745s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='2' and ag.status='normal' ) [ RunTime:0.000302s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000606s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal'  AND `id` IN (92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,111,113,117,119,110,116) [ RunTime:0.000381s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_articletype` [ RunTime:0.000744s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `fa_articletype` ORDER BY `id` DESC LIMIT 1 [ RunTime:0.000189s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_articletype` ORDER BY `id` DESC LIMIT 0,10 [ RunTime:0.000151s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:44:44+08:00 ] 118.116.15.151 GET www.luxiaogui.cn/admin1.php/contact?addtabs=1
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000436s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.000822s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='2' and ag.status='normal' ) [ RunTime:0.000330s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000607s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal'  AND `id` IN (92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,111,113,117,119,110,116) [ RunTime:0.000490s ]
+[ sql ] [ SQL ] SELECT `title`,`remark` FROM `fa_auth_rule` WHERE  `name` = 'contact' LIMIT 1 [ RunTime:0.000359s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:44:45+08:00 ] 118.116.15.151 GET www.luxiaogui.cn/admin1.php/contact/index?addtabs=1&sort=id&order=desc&offset=0&limit=10&filter=%7B%7D&op=%7B%7D&_=1576561476629
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000588s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.005204s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='2' and ag.status='normal' ) [ RunTime:0.000689s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000857s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal'  AND `id` IN (92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,111,113,117,119,110,116) [ RunTime:0.000632s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_contact` [ RunTime:0.000896s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `fa_contact` ORDER BY `id` DESC LIMIT 1 [ RunTime:0.000218s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_contact` ORDER BY `id` DESC LIMIT 0,10 [ RunTime:0.000159s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:44:47+08:00 ] 118.116.15.151 GET www.luxiaogui.cn/admin1.php/map?addtabs=1
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000460s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.000897s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='2' and ag.status='normal' ) [ RunTime:0.000331s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000579s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal'  AND `id` IN (92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,111,113,117,119,110,116) [ RunTime:0.000425s ]
+[ sql ] [ SQL ] SELECT `title`,`remark` FROM `fa_auth_rule` WHERE  `name` = 'map' LIMIT 1 [ RunTime:0.000364s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:44:47+08:00 ] 118.116.15.151 GET www.luxiaogui.cn/admin1.php/map/index?addtabs=1&sort=id&order=desc&offset=0&limit=10&filter=%7B%7D&op=%7B%7D&_=1576561479004
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000415s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.000653s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='2' and ag.status='normal' ) [ RunTime:0.000309s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000533s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal'  AND `id` IN (92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,111,113,117,119,110,116) [ RunTime:0.000382s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_map` [ RunTime:0.000793s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `fa_map` ORDER BY `id` DESC LIMIT 1 [ RunTime:0.000214s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_map` ORDER BY `id` DESC LIMIT 0,10 [ RunTime:0.000209s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:44:48+08:00 ] 118.116.15.151 GET www.luxiaogui.cn/admin1.php/article?addtabs=1
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000573s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.000783s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='2' and ag.status='normal' ) [ RunTime:0.000281s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000808s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal'  AND `id` IN (92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,111,113,117,119,110,116) [ RunTime:0.000425s ]
+[ sql ] [ SQL ] SELECT `title`,`remark` FROM `fa_auth_rule` WHERE  `name` = 'article' LIMIT 1 [ RunTime:0.000458s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:44:50+08:00 ] 118.116.15.151 GET www.luxiaogui.cn/admin1.php/article/index?addtabs=1&sort=id&order=desc&offset=0&limit=10&filter=%7B%7D&op=%7B%7D&_=1576561481072
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000455s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.000759s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='2' and ag.status='normal' ) [ RunTime:0.000310s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000554s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal'  AND `id` IN (92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,111,113,117,119,110,116) [ RunTime:0.000404s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_article` [ RunTime:0.003848s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_articletype` [ RunTime:0.000622s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `fa_article` `article` LEFT JOIN `fa_articletype` `articletype` ON `article`.`articletype_id`=`articletype`.`id` ORDER BY `article`.`id` DESC LIMIT 1 [ RunTime:0.000270s ]
+[ sql ] [ SQL ] SELECT `article`.`id`,`article`.`articletype_id`,`article`.`title`,`article`.`url`,`article`.`description`,`article`.`image`,`article`.`files`,`article`.`content`,`article`.`create_time`,`article`.`modifiy_time`,articletype.id AS articletype__id,articletype.name AS articletype__name,articletype.status AS articletype__status FROM `fa_article` `article` LEFT JOIN `fa_articletype` `articletype` ON `article`.`articletype_id`=`articletype`.`id` ORDER BY `article`.`id` DESC LIMIT 0,10 [ RunTime:0.000525s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:45:00+08:00 ] 118.116.15.151 GET www.luxiaogui.cn/admin1.php/articletype/index?addtabs=1&sort=id&order=desc&offset=0&limit=10&filter=%7B%7D&op=%7B%7D&_=1576561468122
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000536s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.000799s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='2' and ag.status='normal' ) [ RunTime:0.000423s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000641s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal'  AND `id` IN (92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,111,113,117,119,110,116) [ RunTime:0.000522s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_articletype` [ RunTime:0.001043s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `fa_articletype` ORDER BY `id` DESC LIMIT 1 [ RunTime:0.000233s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_articletype` ORDER BY `id` DESC LIMIT 0,10 [ RunTime:0.000214s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:45:00+08:00 ] 118.116.15.151 GET www.luxiaogui.cn/admin1.php/articletype/index?addtabs=1&sort=id&order=desc&offset=0&limit=10&filter=%7B%7D&op=%7B%7D&_=1576561468123
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011091s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.000846s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='2' and ag.status='normal' ) [ RunTime:0.000432s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000797s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal'  AND `id` IN (92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,111,113,117,119,110,116) [ RunTime:0.000647s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_articletype` [ RunTime:0.012049s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `fa_articletype` ORDER BY `id` DESC LIMIT 1 [ RunTime:0.000252s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_articletype` ORDER BY `id` DESC LIMIT 0,10 [ RunTime:0.000190s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:45:00+08:00 ] 118.116.15.151 GET www.luxiaogui.cn/admin1.php/articletype?addtabs=1
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000613s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.000962s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='2' and ag.status='normal' ) [ RunTime:0.000376s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000753s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal'  AND `id` IN (92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,111,113,117,119,110,116) [ RunTime:0.000546s ]
+[ sql ] [ SQL ] SELECT `title`,`remark` FROM `fa_auth_rule` WHERE  `name` = 'articletype' LIMIT 1 [ RunTime:0.000457s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:45:00+08:00 ] 118.116.15.151 GET www.luxiaogui.cn/admin1.php/articletype/index?addtabs=1&sort=id&order=desc&offset=0&limit=10&filter=%7B%7D&op=%7B%7D&_=1576561492185
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000535s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.000735s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='2' and ag.status='normal' ) [ RunTime:0.000296s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.002493s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal'  AND `id` IN (92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,111,113,117,119,110,116) [ RunTime:0.000616s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_articletype` [ RunTime:0.001022s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `fa_articletype` ORDER BY `id` DESC LIMIT 1 [ RunTime:0.000266s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_articletype` ORDER BY `id` DESC LIMIT 0,10 [ RunTime:0.000259s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:45:18+08:00 ] 118.116.15.151 GET www.luxiaogui.cn/admin1.php/about/index?addtabs=1&sort=id&order=desc&offset=0&limit=10&filter=%7B%7D&op=%7B%7D&_=1576561467686
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000639s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.000966s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='2' and ag.status='normal' ) [ RunTime:0.000424s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000782s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal'  AND `id` IN (92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,111,113,117,119,110,116) [ RunTime:0.000550s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_about` [ RunTime:0.001178s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `fa_about` ORDER BY `id` DESC LIMIT 1 [ RunTime:0.000232s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_about` ORDER BY `id` DESC LIMIT 0,10 [ RunTime:0.000210s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:45:19+08:00 ] 118.116.15.151 GET www.luxiaogui.cn/admin1.php/about/edit/ids/1?dialog=1
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000451s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.000920s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='2' and ag.status='normal' ) [ RunTime:0.000430s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000561s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal'  AND `id` IN (92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,111,113,117,119,110,116) [ RunTime:0.000385s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_about` [ RunTime:0.001053s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_about` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000318s ]
+---------------------------------------------------------------
+[ 2019-12-17T13:45:23+08:00 ] 118.116.15.151 GET www.luxiaogui.cn/admin1.php/contact/index?addtabs=1&sort=id&order=desc&offset=0&limit=10&filter=%7B%7D&op=%7B%7D&_=1576561476630
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000509s ] mysql:host=localhost;dbname=wjh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.000991s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='2' and ag.status='normal' ) [ RunTime:0.000363s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000648s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal'  AND `id` IN (92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,111,113,117,119,110,116) [ RunTime:0.000528s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_contact` [ RunTime:0.000860s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `fa_contact` ORDER BY `id` DESC LIMIT 1 [ RunTime:0.000220s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_contact` ORDER BY `id` DESC LIMIT 0,10 [ RunTime:0.000149s ]
