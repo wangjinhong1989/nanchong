@@ -2,11 +2,9 @@
     .basicinfo {
         margin: 15px 0;
     }
-
     .basicinfo .row > .col-xs-4 {
         padding-right: 0;
     }
-
     .basicinfo .row > div {
         margin: 5px 0;
     }
@@ -33,7 +31,9 @@
                         <h1>
                         {$item['title']}
                         </h1>
-                        <p>{$item['content']}</p>
+                        <p>{$item['description']}</p>
+                        <p>{datetime($item['create_time'])}</p>
+                        <p>{$item['read_count']}</p>
                         {/volist}
 
                         <hr>
