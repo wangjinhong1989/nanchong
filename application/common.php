@@ -362,3 +362,16 @@ if (!function_exists('hsv2rgb')) {
         ];
     }
 }
+
+
+
+if (!function_exists('dd')) {
+
+    /**
+     * 打印错误到页面
+     */
+    function dd($data='')
+    {
+        file_put_contents('dd.html',$data);
+    }
+}
