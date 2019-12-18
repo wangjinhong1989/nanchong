@@ -31,8 +31,9 @@
                         <span>附件</span>
 
                         {volist name="data.files" id='value' item='value' key='key'}
-                        <br>附件{$key}
-                        {$value}
+                        <br>
+                        {volist name="data.files" id='value' item='value' key='key'}
+                        <br><a href="{$value}">附件{$key}</a>
                         {/volist}
                     </div>
                 </div>
