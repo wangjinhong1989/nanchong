@@ -25,8 +25,15 @@
                         {:__('关于我们')}
                     </h2>
                     <div class="row user-baseinfo" style="word-break:break-all; word-wrap:break-word ;">
+                        <br>
                         {$data.content}
-                        <span>附件</span>{$data.files}
+                        <br>
+                        <span>附件</span>
+
+                        {volist name="data.files" id='value' item='value'}
+
+                        {$value}
+                        {/volist}
                     </div>
                 </div>
             </div>
