@@ -26,12 +26,11 @@
                     </h2>
                     <div class="row user-baseinfo" style="word-break:break-all; word-wrap:break-word ;">
                         <br>
+                        <br>
                         {$data.content}
                         <br>
-                        <span>附件</span>
-
-                        {volist name="data.files" id='value' item='value' key='key'}
                         <br>
+                        <span>附件</span>
                         {volist name="data.files" id='value' item='value' key='key'}
                         <br><a href="{$value}">附件{$key}</a>
                         {/volist}
