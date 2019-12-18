@@ -29,7 +29,7 @@
                         {volist name='dataList' id='item'}
 
                         <h1>
-                            <a href="{:url('info/detail',array('id'=>$item['id']))}" target="_blank">{$item['title']}</a>
+                            <a href="{:url('info/detail',array('id'=>$item['id']))}" target="_parent">{$item['title']}</a>
                         </h1>
                         <p>{$item['description']}</p>
                         <p>{$item['create_time']|datetime}</p>
