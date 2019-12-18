@@ -25,8 +25,14 @@
                         {:__('关于我们')}
                     </h2>
                      <div class="row user-baseinfo" style="word-break:break-all; word-wrap:break-word ;">
-                        {$data.content}
-                       <span>附件</span>{$data.files}
+                         <br>
+                         {$data.content}
+                         <br>
+                         <span>附件</span>
+                         { $files=explode(',',$data.files);foreach name="files" id='value'}
+
+                         {$value}
+                         {/foreach}
                     </div>
                 </div>
             </div>

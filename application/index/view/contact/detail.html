@@ -25,9 +25,10 @@
                         {:__('联系我们')}
                     </h2>
                     <div class="row user-baseinfo" style="word-break:break-all; word-wrap:break-word ;">
+                        <br>
                         {$data.content}
-                        <span>附件</span>{$data.files}
-
+                        <br>
+                        <span>附件</span>
                         { $files=explode(',',$data.files);foreach name="files" id='value'}
 
                         {$value}
