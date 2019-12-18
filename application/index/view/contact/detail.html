@@ -27,6 +27,11 @@
                     <div class="row user-baseinfo" style="word-break:break-all; word-wrap:break-word ;">
                         {$data.content}
                         <span>附件</span>{$data.files}
+
+                        {foreach name="expload(',',$data.files)" item='value'}
+
+                        {$value}
+                        {/foreach}
                     </div>
                 </div>
             </div>
