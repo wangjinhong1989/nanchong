@@ -14,7 +14,7 @@ class About extends Frontend
     public function index()
     {
         $this->detail();
-        return $this->view->fetch();
+        return $this->view->fetch('about/detail');
     }
 
     public function news()

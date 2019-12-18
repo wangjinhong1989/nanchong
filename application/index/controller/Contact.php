@@ -14,7 +14,7 @@ class Contact extends Frontend
     public function index()
     {
         $this->detail();
-        return $this->view->fetch();
+        return $this->view->fetch('contact/detail');
     }
 
     public function news()
