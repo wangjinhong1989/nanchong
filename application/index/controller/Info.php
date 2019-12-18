@@ -43,7 +43,9 @@ class Info extends Frontend
 
         //  更新
         if($lists){
-            $model->where(['id'=>$id])->inc('read_count',1);
+            $info=$model->where(['id'=>$id])->find();
+            $info->read_count=$info->read_count+1;
+            $info->save();
         }
         return $this->view->fetch();
 
