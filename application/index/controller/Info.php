@@ -20,7 +20,7 @@ class Info extends Frontend
         $page_size = $this->request->param("page_size", 1);
         $offset = ($page - 1) * $page_size;
 
-        $lists = $model->with(['articletype'])->where(['articletype.status' => '显示'])->limit($offset, $page_size)->paginate($page_size, true);
+        $lists = $model->with(['articletype'])->where(['articletype.status' => '显示','articletype.name'=>'信息公开'])->limit($offset, $page_size)->paginate($page_size, true);
         $this->assign('dataList', $lists);
         $this->assign('page', $lists->render());
         return $this->view->fetch();
