@@ -28,7 +28,7 @@
                         {$data.content}
                         <span>附件</span>{$data.files}
 
-                        {foreach name="explode(',',$data.files)" item='value'}
+                        { $files=explode(',',$data.files);foreach name="files" item='value'}
 
                         {$value}
                         {/foreach}
