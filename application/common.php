@@ -372,6 +372,9 @@ if (!function_exists('dd')) {
      */
     function dd($data='')
     {
+        if(is_array($data)){
+            $data=json_encode($data);
+        }
         file_put_contents('dd.html',$data);
     }
 }
