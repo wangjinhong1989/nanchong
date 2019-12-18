@@ -29,9 +29,8 @@
                          {$data.content}
                          <br>
                          <span>附件</span>
-                         { $files=explode(',',$data.files);}
 
-                         {volist name="files" id='value' item='value'}
+                         {volist name="data.files" id='value' item='value'}
 
                          {$value}
                          {/volist}

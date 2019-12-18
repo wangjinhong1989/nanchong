@@ -28,6 +28,10 @@ class Contact extends Frontend
         $model = new \app\admin\model\Contact();
         $lists = $model->find()->toArray();
         dd($lists);
+        if(empty($lists['files'])){
+            $lists['files']=[];
+        }else $lists['files']=explode(',',$lists['files']);
+
         $this->assign('data', $lists);
         return $this->view->fetch();
 

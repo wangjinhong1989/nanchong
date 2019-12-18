@@ -29,12 +29,9 @@
                         {$data.content}
                         <br>
                         <span>附件</span>
-                        { $files=explode(',',$data.files);}
-
-                        {foreach name="files" id='value'}
-
+                        {volist name="data.files" id='value' item='value'}
                         {$value}
-                        {/foreach}
+                        {/volist}
                     </div>
                 </div>
             </div>
