@@ -40,6 +40,11 @@ class Info extends Frontend
         $lists = $model->with(['articletype'])->where(['articletype.status' => '显示', 'article.id' => $id])->find()->toArray();
         dd($lists);
         $this->assign('data', $lists);
+
+        //  更新
+        if($lists){
+            $model->where(['id'=>$id])->inc('read_count',1);
+        }
         return $this->view->fetch();
 
     }
