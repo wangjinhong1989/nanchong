@@ -15,14 +15,14 @@ class Info extends Frontend
 
     public function index()
     {
-        $model=new Article();
-        $page=$this->request->param("page",1);
-        $page_size=$this->request->param("page_size",1);
-        $offset=($page-1)*$page_size;
+        $model = new Article();
+        $page = $this->request->param("page", 1);
+        $page_size = $this->request->param("page_size", 1);
+        $offset = ($page - 1) * $page_size;
 
-        $lists=$model->with(['articletype'])->where(['articletype.status'=>'显示'])->limit($offset,$page_size)->paginate($page_size,true);
-        $this->assign('dataList',$lists);
-        $this->assign('page',$lists->render());
+        $lists = $model->with(['articletype'])->where(['articletype.status' => '显示'])->limit($offset, $page_size)->paginate($page_size, true);
+        $this->assign('dataList', $lists);
+        $this->assign('page', $lists->render());
         return $this->view->fetch();
     }
 
@@ -32,4 +32,15 @@ class Info extends Frontend
         return jsonp(['newslist' => $newslist, 'new' => count($newslist), 'url' => 'https://www.fastadmin.net?ref=news']);
     }
 
+    public function detail()
+    {
+        $model = new Article();
+        $id = $this->request->param("id", 0);
+
+        $lists = $model->with(['articletype'])->where(['articletype.status' => '显示', 'article.id' => $id])->find();
+        var_dump($lists);
+        $this->assign('data', $lists);
+        return $this->view->fetch();
+
+    }
 }
