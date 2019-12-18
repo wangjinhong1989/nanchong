@@ -1,0 +1,38 @@
+<style>
+    .basicinfo {
+        margin: 15px 0;
+    }
+    .basicinfo .row > .col-xs-4 {
+        padding-right: 0;
+    }
+    .basicinfo .row > div {
+        margin: 5px 0;
+    }
+    img{max-width: 100%;display: inline;overflow:hidden;
+    }
+    .user-baseinfo p{max-width: 100%;display: inline;overflow:hidden;
+    }
+</style>
+<div id="content-container" class="container">
+    <div class="row">
+        <div class="col-md-3">
+            {include file="common/mynav" /}
+        </div>
+        <div class="col-md-9">
+            <div class="panel panel-default ">
+                <div class="panel-body">
+                    <h2 class="page-header">
+                        {:__('新闻列表')} / {$data.articletype.name}
+                    </h2>
+                     <div class="row user-baseinfo" style="word-break:break-all; word-wrap:break-word ;">
+
+                        <h1>{$data.title}</h1>
+                        <p><span>创建时间 </span> <span>{$data.create_time_text}</span> <span>阅读数</span><span>{$data.read_count}</span></p>
+                        {$data.content}
+                       <span>附件</span>{$data.files}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
