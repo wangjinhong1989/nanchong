@@ -13,8 +13,16 @@ class About extends Frontend
 
     public function index()
     {
-        $this->detail();
-        return $this->view->fetch('about/detail');
+
+        $model = new \app\admin\model\About();
+        $lists = $model->find()->toArray();
+        dd($lists);
+        if(empty($lists['files'])){
+            $lists['files']=[];
+        }else $lists['files']=explode(',',$lists['files']);
+
+        $this->assign('data', $lists);
+        return $this->view->fetch();
     }
 
     public function news()
@@ -25,15 +33,6 @@ class About extends Frontend
 
     public function detail()
     {
-        $model = new \app\admin\model\About();
-        $lists = $model->find()->toArray();
-        dd($lists);
-        if(empty($lists['files'])){
-            $lists['files']=[];
-        }else $lists['files']=explode(',',$lists['files']);
-
-        $this->assign('data', $lists);
-        return $this->view->fetch();
 
     }
 }
