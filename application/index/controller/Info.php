@@ -37,7 +37,7 @@ class Info extends Frontend
         $model = new Article();
         $id = $this->request->param("id", 0);
 
-        $lists = $model->with(['articletype'])->where(['articletype.status' => '显示', 'article.id' => $id])->find();
+        $lists = $model->with(['articletype'])->where(['articletype.status' => '显示', 'article.id' => $id])->find()->toArray();
         var_dump($lists);
         $this->assign('data', $lists);
         return $this->view->fetch();
