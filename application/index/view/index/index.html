@@ -44,7 +44,7 @@
         { name: '西充县', value: 50 },
     ]
     //展示南充地图
-    $.get('nanchong.json', function (nanchongJson) {
+    $.get('/s/nanchong.json', function (nanchongJson) {
         echarts.registerMap('nanchong', nanchongJson);
         var myChart = echarts.init(document.getElementById('main'));
         option = {
