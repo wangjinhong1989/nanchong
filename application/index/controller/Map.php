@@ -28,7 +28,7 @@ class Map extends Frontend
 
     public function count(){
 
-        $model = new Map();
+        $model = new \app\admin\model\Map();
 
         $data=[];
         $array=["顺庆区","高坪区","嘉陵区","南部县","蓬安县","营山县","仪陇县","阆中市","西充县"];
