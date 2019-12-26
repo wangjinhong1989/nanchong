@@ -55,6 +55,10 @@
 
     //展示南充地图
     $.get('/s/nanchong.json', function (nanchongJson) {
+
+        for(var i;i<length(nanchongJson.features);i++){
+            nanchongJson.features[i]["properties"]["name"]=nanchongJson.features[i]["properties"]["name"]+nanchongJson.features[i]["properties"]["id"]
+        }
         echarts.registerMap('nanchong', nanchongJson);
         var myChart = echarts.init(document.getElementById('main'));
         option = {
