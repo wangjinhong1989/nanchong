@@ -45,7 +45,7 @@
     // ]
 
     // str= eval('(' + '{$dataList}' + ')');
-    var dataList =  $dataList;
+    var dataList =  '$dataList';
     //展示南充地图
     $.get('/s/nanchong.json', function (nanchongJson) {
         echarts.registerMap('nanchong', nanchongJson);
