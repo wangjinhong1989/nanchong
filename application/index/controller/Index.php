@@ -29,7 +29,7 @@ class Index extends Frontend
             array_push($data,["name"=>$value,"value"=>$count]);
         }
 
-        return \GuzzleHttp\json_encode($data);
+        return \GuzzleHttp\json_encode($data,JSON_UNESCAPED_UNICODE);
     }
 
     public function news()
