@@ -15,8 +15,13 @@ class Map extends Frontend
 
     public function index()
     {
+        $area=$this->request->input("area","");
+        $where=[];
+        if(!$area){
+            $where["area"]=$area;
+        }
         $model = new \app\admin\model\Map();
-        $lists = $model->where([])->select();
+        $lists = $model->where($where)->select();
         $this->assign('dataList', $lists);
         return $this->view->fetch();
     }
