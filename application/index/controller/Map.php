@@ -38,6 +38,6 @@ class Map extends Frontend
             array_push($data,["name"=>$value,"value"=>$count]);
         }
 
-        echo \GuzzleHttp\json_encode($data);
+        echo \GuzzleHttp\json_encode($data,JSON_UNESCAPED_UNICODE);
     }
 }
