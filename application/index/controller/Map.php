@@ -23,7 +23,7 @@ class Map extends Frontend
         $model = new \app\admin\model\Map();
         $lists = $model->where($where)->select();
         $this->assign('dataList', $lists);
-        return $this->view->fetch();
+        return $this->view->fetch("index_lz");
     }
 
     public function count(){

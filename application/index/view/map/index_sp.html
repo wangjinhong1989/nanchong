@@ -78,6 +78,38 @@
         lng: '30.8009651682',
         county: [
             {
+                name: '四川省南充市顺庆区',
+                color: '#ffa07a99',
+            },
+            {
+                name: '四川省南充市高坪区',
+                color: '#cd26268a',
+            },
+            {
+                name: '四川省南充市嘉陵区',
+                color: '#43cd8082',
+            },
+            {
+                name: '四川省南充市营山县',
+                color: '#b0e0e6c7',
+            },
+            {
+                name: '四川省南充市西充县',
+                color: '#9ac0cda6',
+            },
+            {
+                name: '四川省南充市南部县',
+                color: '#8b636c85',
+            },
+            {
+                name: '四川省南充市蓬安县',
+                color: '#8b83788c',
+            },
+            {
+                name: '四川省南充市仪陇县',
+                color: '#cdb79e9e',
+            },
+            {
                 name: '四川省南充市阆中',
                 color: '#eea9b89e',
             },
@@ -189,7 +221,7 @@
                 map.setViewport(pointArray);//调整视野
             });
         })
-        bdary.get("四川省南充市阆中市", function (rs) { //获取行政区域
+        bdary.get("四川省南充市", function (rs) { //获取行政区域
             var count = rs.boundaries.length; //行政区域的点有多少个
             if (count === 0) {
                 return;
