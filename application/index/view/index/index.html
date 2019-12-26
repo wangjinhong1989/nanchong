@@ -32,17 +32,20 @@
 </div>
 <script type="text/javascript">
     //区县全景图数量展示
-    var dataList = [
-        { name: '顺庆区', value: 234 },
-        { name: '高坪区', value: 20 },
-        { name: '嘉陵区', value: 99 },
-        { name: '南部县', value: 23 },
-        { name: '蓬安县', value: 9 },
-        { name: '营山县', value: 80 },
-        { name: '仪陇县', value: 30 },
-        { name: '阆中市', value: 150 },
-        { name: '西充县', value: 50 },
-    ]
+    // var dataList = [
+    //     { name: '顺庆区', value: 234 },
+    //     { name: '高坪区', value: 20 },
+    //     { name: '嘉陵区', value: 99 },
+    //     { name: '南部县', value: 23 },
+    //     { name: '蓬安县', value: 9 },
+    //     { name: '营山县', value: 80 },
+    //     { name: '仪陇县', value: 30 },
+    //     { name: '阆中市', value: 150 },
+    //     { name: '西充县', value: 50 },
+    // ]
+
+    str="{$dataList}";
+    var dataList =  JSON.parse(str);
     //展示南充地图
     $.get('/s/nanchong.json', function (nanchongJson) {
         echarts.registerMap('nanchong', nanchongJson);

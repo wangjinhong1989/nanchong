@@ -2,9 +2,11 @@
 
 namespace app\index\controller;
 
+use app\admin\model\Article;
 use app\common\controller\Frontend;
+use think\Db;
 
-class Index extends Frontend
+class Map extends Frontend
 {
 
     protected $noNeedLogin = '*';
@@ -13,13 +15,15 @@ class Index extends Frontend
 
     public function index()
     {
-        $this->assign("dataList",$this->count());
+        $model = new \app\admin\model\Map();
+        $lists = $model->where([])->select();
+        $this->assign('dataList', $lists);
         return $this->view->fetch();
     }
 
     public function count(){
 
-        $model = new \app\admin\model\Map();
+        $model = new Map();
 
         $data=[];
         $array=["顺庆区","高坪区","嘉陵区","南部县","蓬安县","营山县","仪陇县","阆中市","西充县"];
@@ -29,13 +33,6 @@ class Index extends Frontend
             array_push($data,["name"=>$value,"value"=>$count]);
         }
 
-        return \GuzzleHttp\json_encode($data);
+        echo \GuzzleHttp\json_encode($data);
     }
-
-    public function news()
-    {
-        $newslist = [];
-        return jsonp(['newslist' => $newslist, 'new' => count($newslist), 'url' => 'https://www.fastadmin.net?ref=news']);
-    }
-
 }
