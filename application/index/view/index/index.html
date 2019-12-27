@@ -249,7 +249,8 @@
     <div class="mapTitle">南充市全景图数量分布</div>
     <div id="main"></div>
 </div>
-
+<!--<div id="map" style="width: 600px;height: 500px; float: left;">-->
+</div>
 <script src="/s/jquery-1.11.3.min.js"></script>
 <script src="/s/echarts.js"></script>
 
@@ -260,7 +261,7 @@
     $.get('/s/nanchong.json', function (nanchongJson) {
         echarts.registerMap('nanchong', nanchongJson);
 
-        var Echart = echarts.init(document.getElementById("map"));
+        var Echart = echarts.init(document.getElementById("main"));
         var option = {
             tooltip: {},
             legend: {
