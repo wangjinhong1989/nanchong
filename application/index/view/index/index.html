@@ -52,13 +52,8 @@
     ]
 
     dataList=JSON.parse('{$dataList}');
-
     //展示南充地图
     $.get('/s/nanchong.json', function (nanchongJson) {
-        //
-        // for(var i;i<nanchongJson.features.length;i++){
-        //     nanchongJson.features[i]["properties"]["name"]=nanchongJson.features[i]["properties"]["name"]+nanchongJson.features[i]["properties"]["id"]
-        // }
         echarts.registerMap('nanchong', nanchongJson);
         var myChart = echarts.init(document.getElementById('main'));
         option = {
@@ -115,6 +110,30 @@
                     renderItem: function (params, api) {
                         return params.name+" "+params.value
                     }
+                },
+                {
+                    name: '冷链仓储分布',
+                    type: 'effectScatter',
+                    coordinateSystem: 'geo',
+                    zlevel: 2,
+                    rippleEffect: {
+                        brushType: 'stroke'
+                    },
+                    label: {
+                        emphasis: {
+                            show: true,
+                            position: 'right',
+                            formatter: '{b}'
+                        }
+                    },
+                    symbolSize: 10,
+                    showEffectOn: 'render',
+                    itemStyle: {
+                        normal: {
+                            color: '#46bee9'
+                        }
+                    },
+                    data: dataList
                 }
             ]
         };
