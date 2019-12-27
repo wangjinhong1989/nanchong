@@ -78,14 +78,15 @@
 
                 itemStyle: {
                     normal: {
-                        borderColor: 'rgba(0, 0, 0, 0.2)', //边界颜色
-                        label:{
+                        label: {
                             show: true,
-                            formatter:"1111"
+                            formatter: function (params) {
+                                return params.name + "\r\n" + params.value;
+                            },
                         }
                     },
-                    //鼠标滑过高亮颜色
                     emphasis: {
+
                         areaColor: '#F3B329',//鼠标选择区域颜色
                         shadowOffsetX: 0,
                         shadowOffsetY: 0,
@@ -94,6 +95,25 @@
                         shadowColor: 'rgba(0, 0, 0, 0.5)'
                     }
                 },
+
+                // itemStyle: {
+                //     normal: {
+                //         borderColor: 'rgba(0, 0, 0, 0.2)', //边界颜色
+                //         label:{
+                //             show: true,
+                //             formatter:"1111"
+                //         }
+                //     },
+                //     //鼠标滑过高亮颜色
+                //     emphasis: {
+                //         areaColor: '#F3B329',//鼠标选择区域颜色
+                //         shadowOffsetX: 0,
+                //         shadowOffsetY: 0,
+                //         shadowBlur: 20,
+                //         borderWidth: 0,
+                //         shadowColor: 'rgba(0, 0, 0, 0.5)'
+                //     }
+                // },
                 regions: [//对不同的区块进行着色
                     {
                         name: '顺庆区',
@@ -172,21 +192,7 @@
                 // mapType: 'nanchong',
                 coordinateSystem:"geo",
                 showLegendSymbol: false,
-                itemStyle: {
-                    normal: {
-                        label: {
-                            show: true,
-                            formatter: function (params) {
-                                return params.name + "\r\n" + params.value;
-                            },
-                        }
-                    },
-                    emphasis: {
-                        label: {
-                            show: true
-                        }
-                    }
-                },
+
                 data: dataList
             }]
         }
