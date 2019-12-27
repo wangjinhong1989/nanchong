@@ -63,19 +63,11 @@
                 left: 'left',
                 data: ['one']
             },
-            geo: {
-                map: 'nanchong',
-                roam: false,
-                zoom: 1.23,
-                label: {
-                    normal: {
-                        show: true,
-                        fontSize: '10',
-                        color: 'rgba(0,0,0,0.7)'
-                    }
-
-                },
-
+            series: [{
+                name: 'one',
+                type: 'map',
+                mapType: 'nanchong',
+                showLegendSymbol: false,
                 itemStyle: {
                     normal: {
                         label: {
@@ -86,34 +78,14 @@
                         }
                     },
                     emphasis: {
-
-                        areaColor: '#F3B329',//鼠标选择区域颜色
-                        shadowOffsetX: 0,
-                        shadowOffsetY: 0,
-                        shadowBlur: 20,
-                        borderWidth: 0,
-                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        label: {
+                            show: true
+                        }
                     }
                 },
-
-                // itemStyle: {
-                //     normal: {
-                //         borderColor: 'rgba(0, 0, 0, 0.2)', //边界颜色
-                //         label:{
-                //             show: true,
-                //             formatter:"1111"
-                //         }
-                //     },
-                //     //鼠标滑过高亮颜色
-                //     emphasis: {
-                //         areaColor: '#F3B329',//鼠标选择区域颜色
-                //         shadowOffsetX: 0,
-                //         shadowOffsetY: 0,
-                //         shadowBlur: 20,
-                //         borderWidth: 0,
-                //         shadowColor: 'rgba(0, 0, 0, 0.5)'
-                //     }
-                // },
+                roam: false,
+                zoom: 1.23,
+                showLegendSymbol: false,
                 regions: [//对不同的区块进行着色
                     {
                         name: '顺庆区',
@@ -177,7 +149,6 @@
                         itemStyle: {
                             normal: {
                                 areaColor: '#00FAFA',
-                                formatter:"1111",
                                 label:{
                                     show: true,
                                     formatter:"1111"
@@ -185,15 +156,7 @@
                             }
                         }
                     }
-                ]
-            },
-            series: [{
-                name: 'one',
-                type: 'effectScatter',
-                // mapType: 'nanchong',
-                coordinateSystem:"geo",
-                showLegendSymbol: false,
-
+                ],
                 data: dataList
             }]
         }
