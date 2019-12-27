@@ -63,32 +63,35 @@
                 left: 'left',
                 data: ['one']
             },
-            // visualMap: {
-            //     min: 0,
-            //     max: 2500,
-            //     left: 'left',
-            //     top: 'bottom',
-            //     text: ['高', '低'],           // 文本，默认为数值文本
-            //     calculable: true
-            // },
-            series: [{
-                name: 'one',
-                type: 'map',
-                mapType: 'nanchong',
-                showLegendSymbol: false,
+            geo: {
+                map: 'nanchong',
+                roam: false,
+                zoom: 1.23,
+                label: {
+                    normal: {
+                        show: true,
+                        fontSize: '10',
+                        color: 'rgba(0,0,0,0.7)'
+                    }
+
+                },
+
                 itemStyle: {
                     normal: {
-                        label: {
+                        borderColor: 'rgba(0, 0, 0, 0.2)', //边界颜色
+                        label:{
                             show: true,
-                            formatter: function (params) {
-                                return params.name + "\r\n" + params.value;
-                            },
+                            formatter:"1111"
                         }
                     },
+                    //鼠标滑过高亮颜色
                     emphasis: {
-                        label: {
-                            show: true
-                        }
+                        areaColor: '#F3B329',//鼠标选择区域颜色
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        shadowBlur: 20,
+                        borderWidth: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
                     }
                 },
                 regions: [//对不同的区块进行着色
@@ -161,6 +164,29 @@
                             }
                         }
                     }
+                ]
+            },
+            series: [{
+                name: 'one',
+                type: 'map',
+                mapType: 'nanchong',
+                showLegendSymbol: false,
+                itemStyle: {
+                    normal: {
+                        label: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name + "\r\n" + params.value;
+                            },
+                        }
+                    },
+                    emphasis: {
+                        label: {
+                            show: true
+                        }
+                    }
+                }
+            }
                 ],
                 data: dataList
             }]
