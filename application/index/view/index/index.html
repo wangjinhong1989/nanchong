@@ -1,215 +1,3 @@
-<!--<!DOCTYPE html>-->
-<!--<html>-->
-<!--<head>-->
-    <!--<meta charset="UTF-8">-->
-    <!--<title>map</title>-->
-    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">-->
-    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />-->
-    <!--<script src="/s/jquery-1.11.3.min.js"></script>-->
-    <!--<script src="/s/echarts.js"></script>-->
-    <!--<style>-->
-        <!--.map{-->
-            <!--margin-top: 50px;-->
-        <!--}-->
-        <!--.mapTitle{-->
-            <!--font-size: 30px;-->
-            <!--color: #666;-->
-            <!--text-align: center;-->
-            <!--margin-bottom: 30px;-->
-        <!--}-->
-        <!--#main {-->
-            <!--width: 800px;-->
-            <!--height: 550px;-->
-            <!--margin: 0 auto;-->
-        <!--}-->
-        <!--@media screen and (max-width: 950px) {-->
-            <!--#main {-->
-                <!--width: 100%;-->
-                <!--height: 450px;-->
-                <!--margin: 0 auto;-->
-            <!--}-->
-        <!--}-->
-    <!--</style>-->
-<!--</head>-->
-
-<!--<body>-->
-<!--<div class="map">-->
-    <!--<div class="mapTitle">南充市全景图数量分布</div>-->
-    <!--<div id="main"></div>-->
-<!--</div>-->
-<!--<script type="text/javascript">-->
-    <!--// 区县全景图数量展示-->
-    <!--var dataList = [-->
-        <!--{ name: '顺庆区', value: 234 },-->
-        <!--{ name: '高坪区', value: 20 },-->
-        <!--{ name: '嘉陵区', value: 99 },-->
-        <!--{ name: '南部县', value: 23 },-->
-        <!--{ name: '蓬安县', value: 9 },-->
-        <!--{ name: '营山县', value: 80 },-->
-        <!--{ name: '仪陇县', value: 30 },-->
-        <!--{ name: '阆中市', value: 150 },-->
-        <!--{ name: '西充县', value: 50 },-->
-    <!--]-->
-
-    <!--dataList=JSON.parse('{$dataList}');-->
-    <!--//展示南充地图-->
-    <!--$.get('/s/nanchong.json', function (nanchongJson) {-->
-        <!--echarts.registerMap('nanchong', nanchongJson);-->
-        <!--var myChart = echarts.init(document.getElementById('main'));-->
-        <!--option = {-->
-            <!--tooltip: {-->
-                <!--formatter: function (params, ticket, callback) {-->
-                    <!--return params.seriesName + '<br />' + params.name + '：' + params.value-->
-                <!--}-->
-            <!--},-->
-
-            <!--legend: {-->
-                <!--orient: 'vertical',-->
-                <!--left: 'left',-->
-                <!--data:['one']-->
-            <!--},-->
-            <!--visualMap: {-->
-                <!--min: 0,-->
-                <!--max: 2500,-->
-                <!--left: 'left',-->
-                <!--top: 'bottom',-->
-                <!--text: ['高','低'],           // 文本，默认为数值文本-->
-                <!--calculable: true-->
-            <!--},-->
-
-
-            <!--geo: {-->
-                <!--map: 'nanchong',-->
-                <!--roam: false,-->
-                <!--zoom: 1.23,-->
-                <!--label: {-->
-                    <!--normal: {-->
-                        <!--show: true,-->
-                        <!--fontSize: '10',-->
-                        <!--color: 'rgba(0,0,0,0.7)'-->
-                    <!--}-->
-
-                <!--},-->
-
-                <!--itemStyle: {-->
-                    <!--normal: {-->
-                        <!--borderColor: 'rgba(0, 0, 0, 0.2)', //边界颜色-->
-                        <!--label:{-->
-                            <!--show: true,-->
-                            <!--formatter:"1111"-->
-                        <!--}-->
-                    <!--},-->
-                    <!--//鼠标滑过高亮颜色-->
-                    <!--emphasis: {-->
-                        <!--areaColor: '#F3B329',//鼠标选择区域颜色-->
-                        <!--shadowOffsetX: 0,-->
-                        <!--shadowOffsetY: 0,-->
-                        <!--shadowBlur: 20,-->
-                        <!--borderWidth: 0,-->
-                        <!--shadowColor: 'rgba(0, 0, 0, 0.5)'-->
-                    <!--}-->
-                <!--},-->
-                <!--regions: [//对不同的区块进行着色-->
-                    <!--{-->
-                        <!--name: '顺庆区',-->
-                        <!--itemStyle: {-->
-                            <!--normal: {-->
-                                <!--areaColor: '#2b97df',-->
-                            <!--}-->
-                        <!--},-->
-
-                    <!--}, {-->
-                        <!--name: '高坪区',-->
-                        <!--itemStyle: {-->
-                            <!--normal: {-->
-                                <!--areaColor: '#39d6fd'-->
-                            <!--}-->
-                        <!--}-->
-                    <!--}, {-->
-                        <!--name: '嘉陵区',-->
-                        <!--itemStyle: {-->
-                            <!--normal: {-->
-                                <!--areaColor: '#F0FFdf'-->
-                            <!--}-->
-                        <!--}-->
-                    <!--}, {-->
-                        <!--name: '南部县',-->
-                        <!--itemStyle: {-->
-                            <!--normal: {-->
-                                <!--areaColor: '#00e369'-->
-                            <!--}-->
-                        <!--}-->
-                    <!--}, {-->
-                        <!--name: '蓬安县',-->
-                        <!--itemStyle: {-->
-                            <!--normal: {-->
-                                <!--areaColor: '#F1FF00'-->
-                            <!--}-->
-                        <!--}-->
-                    <!--}, {-->
-                        <!--name: '营山县',-->
-                        <!--itemStyle: {-->
-                            <!--normal: {-->
-                                <!--areaColor: '#79d6fd'-->
-                            <!--}-->
-                        <!--}-->
-                    <!--}, {-->
-                        <!--name: '仪陇县',-->
-                        <!--itemStyle: {-->
-                            <!--normal: {-->
-                                <!--areaColor: '#00CC69'-->
-                            <!--}-->
-                        <!--}-->
-                    <!--}, {-->
-                        <!--name: '阆中市',-->
-                        <!--itemStyle: {-->
-                            <!--normal: {-->
-                                <!--areaColor: '#00Dc9b'-->
-                            <!--}-->
-                        <!--}-->
-                    <!--}, {-->
-                        <!--name: '西充县',-->
-                        <!--itemStyle: {-->
-                            <!--normal: {-->
-                                <!--areaColor: '#00FAFA',-->
-                                <!--label:{-->
-                                    <!--show: true,-->
-                                    <!--formatter:"1111"-->
-                                <!--}-->
-                            <!--}-->
-                        <!--}-->
-                    <!--}-->
-                <!--]-->
-            <!--},-->
-            <!--series: [-->
-                <!--{-->
-                    <!--name: '全景图数量',-->
-                    <!--type: 'map',-->
-                    <!--map: 'nanchong',-->
-                    <!--geoIndex: 0,-->
-                    <!--data: dataList,-->
-                    <!--itemStyle:{-->
-                        <!--normal:{-->
-                            <!--label:{-->
-                                <!--show: true,-->
-                                <!--formatter:"1111"-->
-                            <!--}-->
-                        <!--}-->
-                    <!--}-->
-
-                <!--}-->
-            <!--]-->
-        <!--};-->
-        <!--myChart.setOption(option);-->
-        <!--myChart.on('click', function (params) {-->
-            <!--window.location.href="/index/map/index?area="+params.name-->
-        <!--});-->
-    <!--});-->
-
-<!--</script>-->
-<!--</body>-->
-
-<!--</html>-->
 
 
 
@@ -263,7 +51,13 @@
 
         var Echart = echarts.init(document.getElementById("main"));
         var option = {
-            tooltip: {},
+
+            tooltip: {
+                formatter: function (params, ticket, callback) {
+                    return params.seriesName + '<br />' + params.name + '：' + params.value
+                }
+            },
+
             legend: {
                 orient: 'vertical',
                 left: 'left',
@@ -297,6 +91,77 @@
                         }
                     }
                 },
+                regions: [//对不同的区块进行着色
+                    {
+                        name: '顺庆区',
+                        itemStyle: {
+                            normal: {
+                                areaColor: '#2b97df',
+                            }
+                        },
+
+                    }, {
+                        name: '高坪区',
+                        itemStyle: {
+                            normal: {
+                                areaColor: '#39d6fd'
+                            }
+                        }
+                    }, {
+                        name: '嘉陵区',
+                        itemStyle: {
+                            normal: {
+                                areaColor: '#F0FFdf'
+                            }
+                        }
+                    }, {
+                        name: '南部县',
+                        itemStyle: {
+                            normal: {
+                                areaColor: '#00e369'
+                            }
+                        }
+                    }, {
+                        name: '蓬安县',
+                        itemStyle: {
+                            normal: {
+                                areaColor: '#F1FF00'
+                            }
+                        }
+                    }, {
+                        name: '营山县',
+                        itemStyle: {
+                            normal: {
+                                areaColor: '#79d6fd'
+                            }
+                        }
+                    }, {
+                        name: '仪陇县',
+                        itemStyle: {
+                            normal: {
+                                areaColor: '#00CC69'
+                            }
+                        }
+                    }, {
+                        name: '阆中市',
+                        itemStyle: {
+                            normal: {
+                                areaColor: '#00Dc9b'
+                            }
+                        }
+                    }, {
+                        name: '西充县',
+                        itemStyle: {
+                            normal: {
+                                areaColor: '#00FAFA',
+                                label:{
+                                    show: true,
+                                    formatter:"1111"
+                                }
+                            }
+                        }
+                    }
+                ],
                 data: dataList
             }]
         }
