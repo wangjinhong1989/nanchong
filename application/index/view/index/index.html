@@ -92,7 +92,6 @@
                 regions: [//对不同的区块进行着色
                     {
                         name: '顺庆区',
-                        select:true,
                         itemStyle: {
                             normal: {
                                 areaColor: '#2b97df',
@@ -100,12 +99,10 @@
                             }
                         },
                         label:{
-                            normal:{
                                 show:true,
-                                position:[10,10],
-                                formatter: '{a} 你好',
-                            }
-
+                                formatter:function(params){
+                                    return params.name+"\r\n"+params.value;
+                                }
 
                         }
 
