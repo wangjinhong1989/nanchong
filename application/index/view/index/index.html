@@ -79,116 +79,12 @@
                     color: ['#B0C4DE','lightskyblue','yellow', 'orangered']
                 }
             },
-
-
-            geo: {
-                map: 'nanchong',
-                roam: false,
-                zoom: 1.23,
-                label: {
-                    normal: {
-                        show: true,
-                        fontSize: '10',
-                        color: 'rgba(0,0,0,0.7)'
-                    }
-
-                },
-
-                itemStyle: {
-                    normal: {
-                        borderColor: 'rgba(0, 0, 0, 0.2)', //边界颜色
-                        label:{
-                            show: true,
-                            formatter:"1111"
-                        }
-                    },
-                    //鼠标滑过高亮颜色
-                    emphasis: {
-                        areaColor: '#F3B329',//鼠标选择区域颜色
-                        shadowOffsetX: 0,
-                        shadowOffsetY: 0,
-                        shadowBlur: 20,
-                        borderWidth: 0,
-                        shadowColor: 'rgba(0, 0, 0, 0.5)'
-                    }
-                },
-                regions: [//对不同的区块进行着色
-                    {
-                        name: '顺庆区',
-                        itemStyle: {
-                            normal: {
-                                areaColor: '#2b97df',
-                            }
-                        },
-
-                    }, {
-                        name: '高坪区',
-                        itemStyle: {
-                            normal: {
-                                areaColor: '#101010'
-                            }
-                        }
-                    }, {
-                        name: '嘉陵区',
-                        itemStyle: {
-                            normal: {
-                                areaColor: '#F0FFdf'
-                            }
-                        }
-                    }, {
-                        name: '南部县',
-                        itemStyle: {
-                            normal: {
-                                areaColor: '#00e369'
-                            }
-                        }
-                    }, {
-                        name: '蓬安县',
-                        itemStyle: {
-                            normal: {
-                                areaColor: '#F1FF00'
-                            }
-                        }
-                    }, {
-                        name: '营山县',
-                        itemStyle: {
-                            normal: {
-                                areaColor: '#79d6fd'
-                            }
-                        }
-                    }, {
-                        name: '仪陇县',
-                        itemStyle: {
-                            normal: {
-                                areaColor: '#00CC69'
-                            }
-                        }
-                    }, {
-                        name: '阆中市',
-                        itemStyle: {
-                            normal: {
-                                areaColor: '#00Dc9b'
-                            }
-                        }
-                    }, {
-                        name: '西充县',
-                        itemStyle: {
-                            normal: {
-                                areaColor: '#00FAFA',
-                                label:{
-                                    show: true,
-                                    formatter:"1111"
-                                }
-                            }
-                        }
-                    }
-                ]
-            },
             series: [
                 {
                     name: '全景图数量',
                     type: 'map',
-                    map: 'nanchong',
+                    mapType: 'nanchong',
+                    showLegendSymbol : false,
                     data: dataList,
                     itemStyle: {
                         normal: {
