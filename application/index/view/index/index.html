@@ -62,6 +62,22 @@
                     return params.seriesName + '<br />' + params.name + '：' + params.value
                 }
             },
+
+            legend: {
+                orient: 'vertical',
+                left: 'left',
+                data:['one']
+            },
+            visualMap: {
+                min: 0,
+                max: 2500,
+                left: 'left',
+                top: 'bottom',
+                text: ['高','低'],           // 文本，默认为数值文本
+                calculable: true
+            },
+
+
             geo: {
                 map: 'nanchong',
                 roam: false,
@@ -74,9 +90,14 @@
                     }
 
                 },
+
                 itemStyle: {
                     normal: {
-                        borderColor: 'rgba(0, 0, 0, 0.2)' //边界颜色
+                        borderColor: 'rgba(0, 0, 0, 0.2)', //边界颜色
+                        label:{
+                            show: true,
+                            formatter:"1111"
+                        }
                     },
                     //鼠标滑过高亮颜色
                     emphasis: {
