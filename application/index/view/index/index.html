@@ -62,18 +62,6 @@
                     return params.seriesName + '<br />' + params.name + '：' + params.value
                 }
             },
-            //取值范围设置
-            visualMap: {
-                min: 0,
-                max: 50,
-                left: 'left',
-                top: 'bottom',
-                text: ['多', '少'],
-                inRange: {
-                    color: ['#c8fb7d', '#AEC0EE']
-                },
-                show: true
-            },
             geo: {
                 map: 'nanchong',
                 roam: false,
@@ -109,31 +97,73 @@
                     data: dataList,
                     renderItem: function (params, api) {
                         return params.name+" "+params.value
-                    }
-                },
-                {
-                    name: '顺庆区',
-                    type: 'effectScatter',
-                    coordinateSystem: 'geo',
-                    zlevel: 2,
-                    rippleEffect: {
-                        brushType: 'stroke'
                     },
-                    label: {
-                        emphasis: {
-                            show: true,
-                            position: 'right',
-                            formatter: '{b}'
+                    regions: [//对不同的区块进行着色
+                        {
+                            name: '顺庆区',
+                            itemStyle: {
+                                normal: {
+                                    areaColor: '#2b97df'
+                                }
+                            }
+                        }, {
+                            name: '高坪区',
+                            itemStyle: {
+                                normal: {
+                                    areaColor: '#a9d6fd'
+                                }
+                            }
+                        }, {
+                            name: '嘉陵区',
+                            itemStyle: {
+                                normal: {
+                                    areaColor: '#3497df'
+                                }
+                            }
+                        }, {
+                            name: '南部县',
+                            itemStyle: {
+                                normal: {
+                                    areaColor: '#0d4369'
+                                }
+                            }
+                        }, {
+                            name: '蓬安县',
+                            itemStyle: {
+                                normal: {
+                                    areaColor: '#005c9b'
+                                }
+                            }
+                        }, {
+                            name: '营山县',
+                            itemStyle: {
+                                normal: {
+                                    areaColor: '#a9d6fd'
+                                }
+                            }
+                        }, {
+                            name: '仪陇县',
+                            itemStyle: {
+                                normal: {
+                                    areaColor: '#0d4369'
+                                }
+                            }
+                        }, {
+                            name: '阆中市',
+                            itemStyle: {
+                                normal: {
+                                    areaColor: '#005c9b'
+                                }
+                            }
+                        }, {
+                            name: '西充县',
+                            itemStyle: {
+                                normal: {
+                                    areaColor: '#2b97df'
+                                }
+                            }
                         }
-                    },
-                    symbolSize: 10,
-                    showEffectOn: 'render',
-                    itemStyle: {
-                        normal: {
-                            color: '#46bee9'
-                        }
-                    },
-                    data: dataList
+                    ]
                 }
             ]
         };
