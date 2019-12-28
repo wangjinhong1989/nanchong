@@ -31,7 +31,7 @@ class Map extends Frontend
             $lists[$key]["cover"]=$value["image"];
             $lists[$key]["describe"]=$value["description"];
         }
-        $this->assign('dataList', $lists);
+        $this->assign('dataList', \GuzzleHttp\json_encode($lists,JSON_UNESCAPED_UNICODE));
         return $this->view->fetch("index");
     }
 
