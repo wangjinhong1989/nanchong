@@ -21,6 +21,8 @@ class Map extends Frontend
             $where["area"]=$area;
         }
 
+        var_dump($this->request);
+
         $model = new \app\admin\model\Map();
         $lists = $model->where($where)->select();
 
