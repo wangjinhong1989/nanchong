@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:76:"/www/wwwroot/www.luxiaogui.cn/public/../application/admin/view/map/edit.html";i:1576502338;s:72:"/www/wwwroot/www.luxiaogui.cn/application/admin/view/layout/default.html";i:1572536367;s:69:"/www/wwwroot/www.luxiaogui.cn/application/admin/view/common/meta.html";i:1572536366;s:71:"/www/wwwroot/www.luxiaogui.cn/application/admin/view/common/script.html";i:1572536366;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:76:"/www/wwwroot/www.luxiaogui.cn/public/../application/admin/view/map/edit.html";i:1577497997;s:72:"/www/wwwroot/www.luxiaogui.cn/application/admin/view/layout/default.html";i:1572536367;s:69:"/www/wwwroot/www.luxiaogui.cn/application/admin/view/common/meta.html";i:1572536366;s:71:"/www/wwwroot/www.luxiaogui.cn/application/admin/view/common/script.html";i:1572536366;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -106,6 +106,18 @@
         <label class="control-label col-xs-12 col-sm-2"><?php echo __('Create_time'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
             <input id="c-create_time" data-rule="required" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[create_time]" type="text" value="<?php echo $row['create_time']?datetime($row['create_time']):''; ?>">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2"><?php echo __('Area'); ?>:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-area" data-rule="required" class="form-control selectpicker" name="row[area]">
+                <?php if(is_array($areaList) || $areaList instanceof \think\Collection || $areaList instanceof \think\Paginator): if( count($areaList)==0 ) : echo "" ;else: foreach($areaList as $key=>$vo): ?>
+                    <option value="<?php echo $key; ?>" <?php if(in_array(($key), is_array($row['area'])?$row['area']:explode(',',$row['area']))): ?>selected<?php endif; ?>><?php echo $vo; ?></option>
+                <?php endforeach; endif; else: echo "" ;endif; ?>
+            </select>
+
         </div>
     </div>
     <div class="form-group layer-footer">

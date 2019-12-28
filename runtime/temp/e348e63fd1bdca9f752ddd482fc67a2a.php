@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:79:"/www/wwwroot/www.luxiaogui.cn/public/../application/index/view/index/index.html";i:1577464391;s:72:"/www/wwwroot/www.luxiaogui.cn/application/index/view/layout/default.html";i:1576651105;s:69:"/www/wwwroot/www.luxiaogui.cn/application/index/view/common/meta.html";i:1574920671;s:71:"/www/wwwroot/www.luxiaogui.cn/application/index/view/common/script.html";i:1572536367;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:79:"/www/wwwroot/www.luxiaogui.cn/public/../application/index/view/news/detail.html";i:1576649198;s:72:"/www/wwwroot/www.luxiaogui.cn/application/index/view/layout/default.html";i:1576651105;s:69:"/www/wwwroot/www.luxiaogui.cn/application/index/view/common/meta.html";i:1574920671;s:70:"/www/wwwroot/www.luxiaogui.cn/application/index/view/common/mynav.html";i:1576657814;s:71:"/www/wwwroot/www.luxiaogui.cn/application/index/view/common/script.html";i:1572536367;}*/ ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -86,127 +86,55 @@
         </nav>
 
         <main class="content">
-            <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>map</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <script src="/s/jquery-1.11.3.min.js"></script>
-    <script src="/s/echarts.js"></script>
-    <style>
-        .map{
-            margin-top: 50px;
-        }
-        .mapTitle{
-            font-size: 30px;
-            color: #666;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        #main {
-            width: 800px;
-            height: 550px;
-            margin: 0 auto;
-        }
-        @media screen and (max-width: 950px) {
-            #main {
-                width: 100%;
-                height: 450px;
-                margin: 0 auto;
-            }
-        }
-    </style>
-</head>
+            <style>
+    .basicinfo {
+        margin: 15px 0;
+    }
+    .basicinfo .row > .col-xs-4 {
+        padding-right: 0;
+    }
+    .basicinfo .row > div {
+        margin: 5px 0;
+    }
+    img{max-width: 100%;display: inline;overflow:hidden;
+    }
+    .user-baseinfo p{max-width: 100%;display: inline;overflow:hidden;
+    }
+</style>
+<div id="content-container" class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="sidenav">
 
-<body>
-<div class="map">
-    <div class="mapTitle">南充市全景图数量分布</div>
-    <div id="main"></div>
+    <ul class="list-group">
+        <li class="list-group-heading"><?php echo __('导航栏'); ?></li>
+        <!--<li class="list-group-item <?php echo $config['controllername']=='index'?'active':''; ?>"> <a href="<?php echo url('index/index'); ?>"><i class="fa fa-user-circle fa-fw"></i> <?php echo __('首页'); ?></a> </li>-->
+        <li class="list-group-item <?php echo $config['controllername']=='info'?'active':''; ?>"> <a href="<?php echo url('info/index'); ?>"><i class="fa fa-info fa-fw"></i> <?php echo __('信息公开'); ?></a> </li>
+        <li class="list-group-item <?php echo $config['controllername']=='news'?'active':''; ?>"> <a href="<?php echo url('news/index'); ?>"><i class="fa fa-newspaper-o fa-fw"></i> <?php echo __('新闻列表'); ?></a> </li>
+        <li class="list-group-item <?php echo $config['controllername']=='contact'?'active':''; ?>"> <a href="<?php echo url('contact/index'); ?>"><i class="fa fa-phone fa-fw"></i> <?php echo __('联系我们'); ?></a> </li>
+        <li class="list-group-item <?php echo $config['controllername']=='about'?'active':''; ?>"> <a href="<?php echo url('about/index'); ?>"><i class="fa fa-id-card fa-fw"></i> <?php echo __('关于我们'); ?></a> </li>
+    </ul>
 </div>
-<script type="text/javascript">
-    // 区县全景图数量展示
-    var dataList = [
-        { name: '顺庆区', value: 234 },
-        { name: '高坪区', value: 20 },
-        { name: '嘉陵区', value: 99 },
-        { name: '南部县', value: 23 },
-        { name: '蓬安县', value: 9 },
-        { name: '营山县', value: 80 },
-        { name: '仪陇县', value: 30 },
-        { name: '阆中市', value: 150 },
-        { name: '西充县', value: 50 },
-    ]
 
-    dataList=JSON.parse('<?php echo $dataList; ?>');
-    //展示南充地图
-    $.get('/s/nanchong.json', function (nanchongJson) {
-        echarts.registerMap('nanchong', nanchongJson);
-        var myChart = echarts.init(document.getElementById('main'));
-        option = {
-            tooltip: {
-                formatter: function (params, ticket, callback) {
-                    return params.seriesName + '<br />' + params.name + '：' + params.value
-                }
-            },
+        </div>
+        <div class="col-md-9">
+            <div class="panel panel-default ">
+                <div class="panel-body">
+                    <h2 class="page-header">
+                        <?php echo __('新闻列表'); ?> / <?php echo $data['articletype']['name']; ?>
+                    </h2>
+                     <div class="row user-baseinfo" style="word-break:break-all; word-wrap:break-word ;">
 
-            legend: {
-                orient: 'vertical',
-                left: 'left',
-                data:['全景图数量']
-            },
-            visualMap: {
-                min: 0,
-                max: 10,
-                left: 'left',
-                top: 'bottom',
-                text: ['高','低'],           // 文本，默认为数值文本
-                calculable: true,
-                inRange: {
-                    color: ['lightskyblue','yellow', 'orangered']
-                }
-            },
-            series: [
-                {
-                    name: '全景图数量',
-                    type: 'map',
-                    mapType: 'nanchong',
-                    showLegendSymbol : false,
-                    data: dataList,
-                    roam: false,
-                    zoom: 1.23,
-                    itemStyle: {
-                        normal: {
-                            label: {
-                                show: true,
-                                formatter:function(params){
-                                    return params.name+"("+params.value+")";
-                                }
-
-                            },
-
-                        },
-                        emphasis: {
-                            label: {
-                                show: true
-                            }
-                        }
-                    }
-
-                }
-            ]
-        };
-        myChart.setOption(option);
-        myChart.on('click', function (params) {
-            window.location.href="/index/map/index?area="+params.name
-        });
-    });
-
-</script>
-</body>
-
-</html>
+                        <h1><?php echo $data['title']; ?></h1>
+                        <p><span>创建时间 </span> <span><?php echo $data['create_time_text']; ?></span> <span>阅读数</span><span><?php echo $data['read_count']; ?></span></p>
+                        <?php echo $data['content']; ?>
+                       <span>附件</span><?php echo $data['files']; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
         </main>
 

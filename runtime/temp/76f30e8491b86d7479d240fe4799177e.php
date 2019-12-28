@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:75:"/www/wwwroot/www.luxiaogui.cn/public/../application/admin/view/map/add.html";i:1577497997;s:72:"/www/wwwroot/www.luxiaogui.cn/application/admin/view/layout/default.html";i:1572536367;s:69:"/www/wwwroot/www.luxiaogui.cn/application/admin/view/common/meta.html";i:1572536366;s:71:"/www/wwwroot/www.luxiaogui.cn/application/admin/view/common/script.html";i:1572536366;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:80:"/www/wwwroot/www.luxiaogui.cn/public/../application/admin/view/contact/edit.html";i:1576560773;s:72:"/www/wwwroot/www.luxiaogui.cn/application/admin/view/layout/default.html";i:1572536367;s:69:"/www/wwwroot/www.luxiaogui.cn/application/admin/view/common/meta.html";i:1572536366;s:71:"/www/wwwroot/www.luxiaogui.cn/application/admin/view/common/script.html";i:1572536366;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -50,74 +50,38 @@
                             <!-- END RIBBON -->
                             <?php endif; ?>
                             <div class="content">
-                                <form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+                                <form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
 
     <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2"><?php echo __('Title'); ?>:</label>
-        <div class="col-xs-12 col-sm-8">
-            <input id="c-title" data-rule="required" class="form-control" name="row[title]" type="text">
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2"><?php echo __('Jingdu'); ?>:</label>
-        <div class="col-xs-12 col-sm-8">
-            <input id="c-jingdu" data-rule="required" class="form-control" name="row[jingdu]" type="number">
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2"><?php echo __('Weidu'); ?>:</label>
-        <div class="col-xs-12 col-sm-8">
-            <input id="c-weidu" data-rule="required" class="form-control" name="row[weidu]" type="number">
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2"><?php echo __('Url'); ?>:</label>
-        <div class="col-xs-12 col-sm-8">
-            <input id="c-url" data-rule="required" class="form-control" name="row[url]" type="text">
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2"><?php echo __('Image'); ?>:</label>
+        <label class="control-label col-xs-12 col-sm-2"><?php echo __('Files'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
             <div class="input-group">
-                <input id="c-image" data-rule="required" class="form-control" size="50" name="row[image]" type="text">
+                <input id="c-files" data-rule="required" class="form-control" size="50" name="row[files]" type="text" value="<?php echo htmlentities($row['files']); ?>">
                 <div class="input-group-addon no-border no-padding">
-                    <span><button type="button" id="plupload-image" class="btn btn-danger plupload" data-input-id="c-image" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp" data-multiple="false" data-preview-id="p-image"><i class="fa fa-upload"></i> <?php echo __('Upload'); ?></button></span>
-                    <span><button type="button" id="fachoose-image" class="btn btn-primary fachoose" data-input-id="c-image" data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i> <?php echo __('Choose'); ?></button></span>
+                    <span><button type="button" id="plupload-files" class="btn btn-danger plupload" data-input-id="c-files" data-multiple="true" data-preview-id="p-files"><i class="fa fa-upload"></i> <?php echo __('Upload'); ?></button></span>
+                    <span><button type="button" id="fachoose-files" class="btn btn-primary fachoose" data-input-id="c-files" data-multiple="true"><i class="fa fa-list"></i> <?php echo __('Choose'); ?></button></span>
                 </div>
-                <span class="msg-box n-right" for="c-image"></span>
+                <span class="msg-box n-right" for="c-files"></span>
             </div>
-            <ul class="row list-inline plupload-preview" id="p-image"></ul>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2"><?php echo __('Description'); ?>:</label>
-        <div class="col-xs-12 col-sm-8">
-            <input id="c-description" data-rule="required" class="form-control" name="row[description]" type="text">
+            <ul class="row list-inline plupload-preview" id="p-files"></ul>
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2"><?php echo __('Content'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <textarea id="c-content" data-rule="required" class="form-control editor" rows="5" name="row[content]" cols="50"></textarea>
+            <textarea id="c-content" data-rule="required" class="form-control editor" rows="5" name="row[content]" cols="50"><?php echo htmlentities($row['content']); ?></textarea>
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2"><?php echo __('Create_time'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-create_time" data-rule="required" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[create_time]" type="text" value="<?php echo date('Y-m-d H:i:s'); ?>">
+            <input id="c-create_time" data-rule="required" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[create_time]" type="text" value="<?php echo $row['create_time']?datetime($row['create_time']):''; ?>">
         </div>
     </div>
     <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2"><?php echo __('Area'); ?>:</label>
+        <label class="control-label col-xs-12 col-sm-2"><?php echo __('Update_time'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-                        
-            <select  id="c-area" data-rule="required" class="form-control selectpicker" name="row[area]">
-                <?php if(is_array($areaList) || $areaList instanceof \think\Collection || $areaList instanceof \think\Paginator): if( count($areaList)==0 ) : echo "" ;else: foreach($areaList as $key=>$vo): ?>
-                    <option value="<?php echo $key; ?>" <?php if(in_array(($key), explode(',',"西充县"))): ?>selected<?php endif; ?>><?php echo $vo; ?></option>
-                <?php endforeach; endif; else: echo "" ;endif; ?>
-            </select>
-
+            <input id="c-update_time" data-rule="required" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[update_time]" type="text" value="<?php echo $row['update_time']?datetime($row['update_time']):''; ?>">
         </div>
     </div>
     <div class="form-group layer-footer">

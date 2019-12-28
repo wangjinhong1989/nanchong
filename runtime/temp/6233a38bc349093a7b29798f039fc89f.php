@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:75:"/www/wwwroot/www.luxiaogui.cn/public/../application/admin/view/map/add.html";i:1577497997;s:72:"/www/wwwroot/www.luxiaogui.cn/application/admin/view/layout/default.html";i:1572536367;s:69:"/www/wwwroot/www.luxiaogui.cn/application/admin/view/common/meta.html";i:1572536366;s:71:"/www/wwwroot/www.luxiaogui.cn/application/admin/view/common/script.html";i:1572536366;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:81:"/www/wwwroot/www.luxiaogui.cn/public/../application/admin/view/category/edit.html";i:1572536366;s:72:"/www/wwwroot/www.luxiaogui.cn/application/admin/view/layout/default.html";i:1572536367;s:69:"/www/wwwroot/www.luxiaogui.cn/application/admin/view/common/meta.html";i:1572536366;s:71:"/www/wwwroot/www.luxiaogui.cn/application/admin/view/common/script.html";i:1572536366;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -50,74 +50,92 @@
                             <!-- END RIBBON -->
                             <?php endif; ?>
                             <div class="content">
-                                <form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+                                <form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
 
     <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2"><?php echo __('Title'); ?>:</label>
+        <label for="c-type" class="control-label col-xs-12 col-sm-2"><?php echo __('Type'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-title" data-rule="required" class="form-control" name="row[title]" type="text">
+
+            <select id="c-type" data-rule="required" class="form-control selectpicker" name="row[type]">
+                <?php if(is_array($typeList) || $typeList instanceof \think\Collection || $typeList instanceof \think\Paginator): if( count($typeList)==0 ) : echo "" ;else: foreach($typeList as $key=>$vo): ?>
+                <option value="<?php echo $key; ?>" <?php if(in_array(($key), is_array($row['type'])?$row['type']:explode(',',$row['type']))): ?>selected<?php endif; ?>><?php echo $vo; ?></option>
+                <?php endforeach; endif; else: echo "" ;endif; ?>
+            </select>
+
         </div>
     </div>
     <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2"><?php echo __('Jingdu'); ?>:</label>
+        <label for="c-pid" class="control-label col-xs-12 col-sm-2"><?php echo __('Pid'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-jingdu" data-rule="required" class="form-control" name="row[jingdu]" type="number">
+
+            <select id="c-pid" data-rule="required" class="form-control selectpicker" name="row[pid]">
+                <?php if(is_array($parentList) || $parentList instanceof \think\Collection || $parentList instanceof \think\Paginator): if( count($parentList)==0 ) : echo "" ;else: foreach($parentList as $key=>$vo): ?>
+                <option data-type="<?php echo $vo['type']; ?>" class="<?php echo $vo['type']==$row['type']||$vo['type']=='all'?'':'hide'; ?>" value="<?php echo $key; ?>" <?php if(in_array(($key), is_array($row['pid'])?$row['pid']:explode(',',$row['pid']))): ?>selected<?php endif; ?>><?php echo $vo['name']; ?></option>
+                <?php endforeach; endif; else: echo "" ;endif; ?>
+            </select>
+
         </div>
     </div>
     <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2"><?php echo __('Weidu'); ?>:</label>
+        <label for="c-name" class="control-label col-xs-12 col-sm-2"><?php echo __('Name'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-weidu" data-rule="required" class="form-control" name="row[weidu]" type="number">
+            <input id="c-name" data-rule="required" class="form-control" name="row[name]" type="text" value="<?php echo htmlentities($row['name']); ?>">
         </div>
     </div>
     <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2"><?php echo __('Url'); ?>:</label>
+        <label for="c-nickname" class="control-label col-xs-12 col-sm-2"><?php echo __('Nickname'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-url" data-rule="required" class="form-control" name="row[url]" type="text">
+            <input id="c-nickname" data-rule="required" class="form-control" name="row[nickname]" type="text" value="<?php echo htmlentities($row['nickname']); ?>">
         </div>
     </div>
     <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2"><?php echo __('Image'); ?>:</label>
+        <label for="c-flag" class="control-label col-xs-12 col-sm-2"><?php echo __('Flag'); ?>:</label>
+        <div class="col-xs-12 col-sm-8">
+
+            <select  id="c-flag" class="form-control selectpicker" multiple="" name="row[flag][]">
+                <?php if(is_array($flagList) || $flagList instanceof \think\Collection || $flagList instanceof \think\Paginator): if( count($flagList)==0 ) : echo "" ;else: foreach($flagList as $key=>$vo): ?>
+                <option value="<?php echo $key; ?>" <?php if(in_array(($key), is_array($row['flag'])?$row['flag']:explode(',',$row['flag']))): ?>selected<?php endif; ?>><?php echo $vo; ?></option>
+                <?php endforeach; endif; else: echo "" ;endif; ?>
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-image" class="control-label col-xs-12 col-sm-2"><?php echo __('Image'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
             <div class="input-group">
-                <input id="c-image" data-rule="required" class="form-control" size="50" name="row[image]" type="text">
+                <input id="c-image" class="form-control" size="35" name="row[image]" type="text" value="<?php echo $row['image']; ?>">
                 <div class="input-group-addon no-border no-padding">
                     <span><button type="button" id="plupload-image" class="btn btn-danger plupload" data-input-id="c-image" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp" data-multiple="false" data-preview-id="p-image"><i class="fa fa-upload"></i> <?php echo __('Upload'); ?></button></span>
                     <span><button type="button" id="fachoose-image" class="btn btn-primary fachoose" data-input-id="c-image" data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i> <?php echo __('Choose'); ?></button></span>
                 </div>
-                <span class="msg-box n-right" for="c-image"></span>
+                <span class="msg-box n-right"></span>
             </div>
             <ul class="row list-inline plupload-preview" id="p-image"></ul>
         </div>
     </div>
     <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2"><?php echo __('Description'); ?>:</label>
+        <label for="c-keywords" class="control-label col-xs-12 col-sm-2"><?php echo __('Keywords'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-description" data-rule="required" class="form-control" name="row[description]" type="text">
+            <input id="c-keywords" class="form-control" name="row[keywords]" type="text" value="<?php echo htmlentities($row['keywords']); ?>">
         </div>
     </div>
     <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2"><?php echo __('Content'); ?>:</label>
+        <label for="c-description" class="control-label col-xs-12 col-sm-2"><?php echo __('Description'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <textarea id="c-content" data-rule="required" class="form-control editor" rows="5" name="row[content]" cols="50"></textarea>
+            <textarea id="c-description" class="form-control" name="row[description]"><?php echo htmlentities($row['description']); ?></textarea>
         </div>
     </div>
     <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2"><?php echo __('Create_time'); ?>:</label>
+        <label for="c-weigh" class="control-label col-xs-12 col-sm-2"><?php echo __('Weigh'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-create_time" data-rule="required" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[create_time]" type="text" value="<?php echo date('Y-m-d H:i:s'); ?>">
+            <input id="c-weigh" class="form-control" name="row[weigh]" type="number" value="<?php echo $row['weigh']; ?>">
         </div>
     </div>
     <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2"><?php echo __('Area'); ?>:</label>
+        <label class="control-label col-xs-12 col-sm-2"><?php echo __('Status'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-                        
-            <select  id="c-area" data-rule="required" class="form-control selectpicker" name="row[area]">
-                <?php if(is_array($areaList) || $areaList instanceof \think\Collection || $areaList instanceof \think\Paginator): if( count($areaList)==0 ) : echo "" ;else: foreach($areaList as $key=>$vo): ?>
-                    <option value="<?php echo $key; ?>" <?php if(in_array(($key), explode(',',"西充县"))): ?>selected<?php endif; ?>><?php echo $vo; ?></option>
-                <?php endforeach; endif; else: echo "" ;endif; ?>
-            </select>
-
+            <?php echo build_radios('row[status]', ['normal'=>__('Normal'), 'hidden'=>__('Hidden')], $row['status']); ?>
         </div>
     </div>
     <div class="form-group layer-footer">
