@@ -17,14 +17,13 @@ class Map extends Frontend
     {
         $area=$this->request->request("area","");
         $where=[];
-        if(!$area){
+        if($area){
             $where=["area"=>$area];
         }
 
-        var_dump($area);
 
         $model = new \app\admin\model\Map();
-        $lists = $model->where(["area"=>$area])->select();
+        $lists = $model->where($where)->select();
 
         echo $model->getLastSql();
         foreach ($lists as $key=>$value){
