@@ -15,7 +15,7 @@ class Map extends Frontend
 
     public function index()
     {
-        $area=$this->request->input("area","");
+        $area=$this->request->param("area","");
         $where=[];
         if(!$area){
             $where["area"]=$area;

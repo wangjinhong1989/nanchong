@@ -1,197 +1,114 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title></title>
-    <script type="text/javascript"
-            src="http://api.map.baidu.com/api?key=Zm3ag8nnrp2tLiNvTYGE7llV3OLZEq04&v=1.4"></script>
+    <title>map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <script src="/s/jquery-1.11.3.min.js"></script>
+    <script src="/s/echarts.js"></script>
     <style>
-        body {
-            margin: 0;
+        .map{
+            margin-top: 50px;
         }
-
-        #map {
-            width: 100%;
-            height: 100vh;
-        }
-
-        .scenery_link {
-            text-decoration: none;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .scenery_link img{
-            max-width: 100%;
-        }
-
-        .scenery_nam {
-            font-size: 18px;
-            color: #666 !important;
+        .mapTitle{
+            font-size: 30px;
+            color: #666;
             text-align: center;
+            margin-bottom: 30px;
         }
-
-        .scenery_des {
-            font-size: 14px;
-            color: #999;
-            text-indent: 2em;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
+        #main {
+            width: 800px;
+            height: 550px;
+            margin: 0 auto;
+        }
+        @media screen and (max-width: 950px) {
+            #main {
+                width: 100%;
+                height: 450px;
+                margin: 0 auto;
+            }
         }
     </style>
 </head>
 
+<body style="background-image: url('/assets/img/bg_index.png');background-repeat:no-repeat ;
 
-<body>
-<div id="map"></div>
-<script>
+background-size:100% 100%;
 
-    //风景图信息
-    let scenery =dataList=JSON.parse('{$dataList}');
-
-    //南充市中心点及其区县
-    let nanChong = {
-        lat: '106.105553984',
-        lng: '30.8009651682',
-        county: [
-            {
-                name: '四川省南充市',
-                color: '#eea9b89e',
+background-attachment: fixed;">
+<div class="map">
+    <div class="mapTitle">南充市全景图数量分布</div>
+    <div id="main"></div>
+</div>
+<script type="text/javascript">
+    // 区县全景图数量展示
+    dataList=JSON.parse('{$dataList}');
+    //展示南充地图
+    $.get('/s/nanchong.json', function (nanchongJson) {
+        echarts.registerMap('nanchong', nanchongJson);
+        var myChart = echarts.init(document.getElementById('main'));
+        option = {
+            tooltip: {
+                formatter: function (params, ticket, callback) {
+                    return params.seriesName + '<br />' + params.name + '：' + params.value
+                }
             },
-        ]
 
-    }
-
-    //创建和初始化地图函数：
-    function initMap() {
-        createMap();//创建地图
-        getBoundary(); //添加覆盖层
-        setMapEvent();//设置地图事件
-        // addMapControl();//向地图添加控件
-    }
-
-    //地图事件设置函数：
-    function setMapEvent() {
-        map.enableDragging();//启用地图拖拽事件，默认启用(可不写)
-        map.enableScrollWheelZoom();//启用地图滚轮放大缩小
-        map.enableDoubleClickZoom();//启用鼠标双击放大，默认启用(可不写)
-        map.enableKeyboard();//启用键盘上下左右键移动地图
-    }
-
-    //地图控件添加函数：
-    function addMapControl() {
-        //向地图中添加缩放控件
-        var ctrl_nav = new BMap.NavigationControl({ anchor: BMAP_ANCHOR_TOP_LEFT, type: BMAP_NAVIGATION_CONTROL_LARGE });
-        map.addControl(ctrl_nav);
-        //向地图中添加缩略图控件
-        var ctrl_ove = new BMap.OverviewMapControl({ anchor: BMAP_ANCHOR_BOTTOM_RIGHT, isOpen: 1 });
-        map.addControl(ctrl_ove);
-        //向地图中添加比例尺控件
-        var ctrl_sca = new BMap.ScaleControl({ anchor: BMAP_ANCHOR_BOTTOM_LEFT });
-        map.addControl(ctrl_sca);
-    }
-
-    //创建地图函数：
-    function createMap() {
-        //在百度地图容器中创建一个地图
-        var map = new BMap.Map("map");
-        //以南充市为地图中心点
-        var point = new BMap.Point(nanChong.lat, nanChong.lng);
-        //设定地图的中心点以及初始地图缩放级别
-        map.centerAndZoom(point, 12);
-        //将map变量存储在全局
-        window.map = map;
-        //创建标注图标点
-        var myIcon = new BMap.Icon(
-            'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAA3CAYAAABKB8k/AAAEAElEQVRogc2aa6hNWxTHfzbqkjwuH4Qcha63rvf7FZfkWYTElRISig8S3/ggwkkUPniT54d7ETneFBLOScSRd/Ioj+N1PA9NjaVlt9fec40597F/dTqdteYYc/zXOnPNMcZaFUrG9MMDrYDuQHOgGVAPaABUFNdfgYfAY+AGcB04K7+dqORg/BcwDhgCtLcYXwtoAwwMHbsIHAC2A7c1QWjuQCdgFjBeM2EE34AtQD5QGMcwEWNsdWA9cMFz8IYKwL/AFWAV8Ietoa2AYcBNYIo+RmtmyjoZYGNgI2Ax8B9QtxyCD8gDjgDzMg3MtIh3yEL9XSwBGgHTo+ZPdwe2/ebgA6YBq6NORgnIz8JCdWEGsNBWwCRgdg4FH7AIGJx8MFmAWagbyzWseOwDqoQtkgXsytHAA8z+sCF8IPwU6g/08jTRC6AYeCCbVEOgKfCnB99j5dF+jSQB+R6cbwZ2SqL2NulcNaAHMEbWmQvLgUGEcqGewGkHjya9mAoUWY5vC6wDOjvM2Ri4E6wBlxRhK9AlRvDIWGOzzWHeycgirigpsYYCYKJDEBOAo0rb4YGATpKrx6U01XNZgfHxQWFniqj6CamkNMwHvngQ8Fl8aehmBLRWGH4E1ngIPmCN+IxLy4Rke3E55OnqB5i7cFhhl2cE1FQYXlbYZOKKwqZOQnklX7rFmpLnCpvaiRQ7pg1VFDaZqKqwKTMC3isMG7jF6s3nWyPgmcKwr8ImGz6fJCRrjEtryUV80UQ2prjcMgKuKoNY5lGA1ldRQrLQMoXxSIccKsxQYITCzvRbTxsBr4Bzysn3W/ZFo+gA/K+0NTXH6yCddqmDTS0wSmE3GjjvMO8mQjWx6Q5/Ujoy6fge6SO1sBjfQsbuDrXf4/JRKr+fJeUHWUgLlA6RPpL5OSh1gnk43JOaOE9a6wM8peBLgxQ83F43u2sJUNnDBNnkk+Rvph75pa1SWk7dZ1emBsEnC0C6CsdzOPiTweINSNVaHCb/SrnGy1T7TioB74A+OSigt8T2C1Hd6ULp1OUKfaJSnnTvB44B/+SAABPDqaiTmV4xFUi/VJMruVImcxek82PzjuyM9I5KLcb6wszVUeZOi+1bykvisDyeTiUyl1XjIM57YtPObgc81ceWEeP776B1bkMcAYY7kj7fz0Lw98X33ThGcQUYHslV0pSiURSLz0dxDTUCkF2xQ9zvGiIoFF+qXpNWgOGNLDaXouS8+HijdeAiAOnqdQVOKGyNTVfXHqurgIB+UsjYclBsnPElAMkU91qM2+upm/EDnwKQQn1rmvNbZIw3fAtA3pmtTXF8rXzU5JVsCEA+j1kZ+ntFuk9mXHD56C8Tc4AaMmhuVmYAvgMvdrjun9enDwAAAABJRU5ErkJggg==', // 百度图片
-            new BMap.Size(22, 25), // 视窗大小
-            {
-                imageSize: new BMap.Size(22, 25), // 引用图片实际大小
-                imageOffset: new BMap.Size(0, 0)  // 图片相对视窗的偏移
-            }
-        );
-
-        // 添加标注点
-        for (var i = 0, pointsLen = scenery.length; i < pointsLen; i++) {
-            if (typeof (scenery[i]) != 'undefined') {
-                //将标注点转化成地图上的点
-                var point = new BMap.Point(scenery[i].lat, scenery[i].lng);
-                //将点转化成标注点
-                var marker = new BMap.Marker(point, { icon: myIcon });
-                //图标跳动动画
-                marker.setAnimation(BMAP_ANIMATION_BOUNCE);
-                //添加标注
-                map.addOverlay(marker);
-                //循环添加监听事件
-                (function () {
-                    var thePoint = scenery[i];
-                    marker.addEventListener("mouseover",
-                        function (e) {
-                            //鼠标移入展示信息窗口
-                            showInfo(this, thePoint);
-                            var q = map.getZoom();
-                        });
-                })();
-            }
-        }
-
-        //景点图信息展示窗口
-        function showInfo(thisMarker, point) {
-            var sContent = '<a class="scenery_link" href="' + point.link + '"><p class="scenery_nam">' + point.name + '</p><p class="scenery_des">' + point.describe + '</p><img src="' + point.cover + '" alt=""></a>';
-            //创建信息窗口对象
-            var infoWindow = new BMap.InfoWindow(sContent);
-            //图片加载完后重绘infoWindow
-            thisMarker.openInfoWindow(infoWindow);
-        }
-    }
-
-    //创建覆盖层
-    function getBoundary() {
-        var bdary = new BMap.Boundary();
-        //添加区县覆盖层
-        nanChong.county.map(item => {
-            bdary.get(item.name, function (rs) {   //获取行政区域
-                var count = rs.boundaries.length; //行政区域的点有多少个
-                if (count === 0) {
-                    return;
+            legend: {
+                orient: 'vertical',
+                left: 'left',
+                data:['全景图数量']
+            },
+            visualMap: {
+                min: 0,
+                max: 10,
+                left: 'left',
+                top: 'bottom',
+                text: ['高','低'],           // 文本，默认为数值文本
+                calculable: true,
+                inRange: {
+                    color: ['lightskyblue','yellow', 'orangered']
                 }
-                var pointArray = [];
-                for (var i = 0; i < count; i++) {
-                    var ply = new BMap.Polygon(rs.boundaries[i], {
-                        strokeWeight: 0.5, strokeColor: 0.5, fillColor: 0.5, fillColor: item.color, //设置多边形填充颜色
-                    }); //建立多边形覆盖物
-                    map.addOverlay(ply);  //添加覆盖物
-                    pointArray = pointArray.concat(ply.getPath());
+            },
+            series: [
+                {
+                    name: '全景图数量',
+                    type: 'map',
+                    mapType: 'nanchong',
+                    showLegendSymbol : false,
+                    data: dataList,
+                    roam: false,
+                    zoom: 1.23,
+                    itemStyle: {
+                        normal: {
+                            label: {
+                                show: true,
+                                formatter:function(params){
+                                    return params.name+"("+params.value+")";
+                                }
+
+                            },
+
+                        },
+                        emphasis: {
+                            label: {
+                                show: true
+                            }
+                        }
+                    }
+
                 }
-                map.setViewport(pointArray);//调整视野
-            });
-        })
-        bdary.get("四川省南充市", function (rs) { //获取行政区域
-            var count = rs.boundaries.length; //行政区域的点有多少个
-            if (count === 0) {
-                return;
-            }
-            const EN_JW = '180, 90;';
-            const NW_JW = '-180,  90;';
-            const WS_JW = '-180, -90;';
-            const SE_JW = '180, -90;';
-            const ply1 = new BMap.Polygon(rs.boundaries[0] + SE_JW + SE_JW + WS_JW + NW_JW + EN_JW + SE_JW,
-                { strokeColor: 0.5, fillColor: '#f2f2f2cf', fillOpacity: 1, strokeOpacity: 1 });
-            map.addOverlay(ply1);
+            ]
+        };
+        myChart.setOption(option);
+        myChart.on('click', function (params) {
+            window.location.href="/index/map/index?area="+params.name
         });
-    }
-
-    initMap();
+    });
 
 </script>
+
 </body>
 
-
-<iframe  src="http://www.expoon.com/e/kk7qsm35woe/?key=aif1wk"></iframe>
 </html>
