@@ -23,6 +23,7 @@ class Map extends Frontend
         $model = new \app\admin\model\Map();
         $lists = $model->where($where)->select();
 
+        echo $model->getLastSql();
         foreach ($lists as $key=>$value){
             $lists[$key]["name"]=$value["title"];
             $lists[$key]["lat"]=$value["jingdu"];
