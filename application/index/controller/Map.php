@@ -18,7 +18,7 @@ class Map extends Frontend
         $area=$this->request->request("area","");
         $where=[];
         if(!$area){
-            $where["area"]=$area;
+            $where["area"]=["=",$area];
         }
 
         var_dump($area);
