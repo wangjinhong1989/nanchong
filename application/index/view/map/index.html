@@ -11,7 +11,6 @@
     <style>
         body {
             margin: 0;
-            background-image: "/assets/img/bg_index.png";
         }
 
         #map {
@@ -54,24 +53,7 @@
 <script>
 
     //风景图信息
-    let scenery = [
-        {
-            name: '阆中古城',
-            lat: '105.978460',
-            lng: '31.570978',
-            link: 'http://baijiahao.baidu.com/s?id=1639446713625401922&wfr=spider&for=pc',
-            cover: 'https://bkimg.cdn.bcebos.com/pic/30adcbef76094b36771ba224adcc7cd98c109d6a@wm_1,g_7,k_d2F0ZXIvYmFpa2UxNTA=,xp_5,yp_5',
-            describe: '早在1300多年前，阆中就是著名的旅游胜地，有“阆苑仙境”、“阆州天下胜”之誉。 古城阆中的建筑风格体现了我国古代的居住风水观，由于地理环境的封闭性，古城风貌得到了天然保护，城中街名多有其特殊含义，如状元街、学道街、管星街、三陈街、醋房街等等，每条街都有一段历史'
-        },
-        {
-            name: '朱德故里',
-            lat: '106.978460',
-            lng: '32.570978',
-            link: 'https://baike.baidu.com/item/%E6%9C%B1%E5%BE%B7%E6%95%85%E9%87%8C/3268008?fr=aladdin',
-            cover: 'https://gss3.bdstatic.com/7Po3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=2d9e591f13d5ad6eaaf963ecb9f05ee6/b7003af33a87e950caaf91b718385343faf2b4b5.jpg',
-            describe: '朱德故里景区：国家AAAAA级旅游景区、全国重点文物保护单位、全国爱国主义教育示范基地、全国廉政教育基地、全国首批“景区带村”旅游扶贫示范景区、全国12个重点红色旅游区、30条红色精品旅游线路之一，2016年十一假日最佳景区。'
-        }
-    ]
+    let scenery =dataList=JSON.parse('{$dataList}');
 
     //南充市中心点及其区县
     let nanChong = {

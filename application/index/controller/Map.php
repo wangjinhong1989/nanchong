@@ -22,6 +22,15 @@ class Map extends Frontend
         }
         $model = new \app\admin\model\Map();
         $lists = $model->where($where)->select();
+
+        foreach ($lists as $key=>$value){
+            $lists[$key]["name"]=$value["title"];
+            $lists[$key]["lat"]=$value["jingdu"];
+            $lists[$key]["lng"]=$value["weidu"];
+            $lists[$key]["link"]=$value["url"];
+            $lists[$key]["cover"]=$value["image"];
+            $lists[$key]["describe"]=$value["description"];
+        }
         $this->assign('dataList', $lists);
         return $this->view->fetch("index");
     }
