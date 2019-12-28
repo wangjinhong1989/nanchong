@@ -44,6 +44,8 @@ background-attachment: fixed;">
 <script type="text/javascript">
     // 区县全景图数量展示
     dataList=JSON.parse('{$dataList}');
+
+    console.log(dataList);
     //展示南充地图
     $.get('/s/nanchong.json', function (nanchongJson) {
         echarts.registerMap('nanchong', nanchongJson);
