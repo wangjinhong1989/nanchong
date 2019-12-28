@@ -24,7 +24,7 @@ class Map extends Frontend
         var_dump($area);
 
         $model = new \app\admin\model\Map();
-        $lists = $model->where($where)->select();
+        $lists = $model->where(["area"=>$area])->select();
 
         echo $model->getLastSql();
         foreach ($lists as $key=>$value){
