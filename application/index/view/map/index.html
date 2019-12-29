@@ -29,88 +29,122 @@
                 margin: 0 auto;
             }
         }
+        body{
+            background-image: url('/assets/img/bg_index.png');
+            background-repeat:no-repeat ;
+            background-size:100% 100%;
+            background-attachment: fixed;
+        }
     </style>
 </head>
 
-<body style="background-image: url('/assets/img/bg_index.png');background-repeat:no-repeat ;
-
-background-size:100% 100%;
-
-background-attachment: fixed;">
+<body>
 <div class="map">
     <div class="mapTitle">南充市全景图数量分布</div>
     <div id="main"></div>
 </div>
 <script type="text/javascript">
-    // 区县全景图数量展示
-    dataList=JSON.parse('{$dataList}');
+    //获取当前区县名称
+    function getUrlParamCN(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = decodeURI(window.location.search).substr(1).match(reg); //匹配目标参数
+        if (r != null) return unescape(r[2]); return null; //返回参数值
+    }
+    var target = getUrlParamCN('area');
 
-    console.log(dataList);
-    //展示南充地图
+    //设置标题
+    $('.mapTitle').text(target+'全景图数量分布');
+
+    //数据
+    var dataList = [
+        {
+            regionName: '阆中市',
+            name: 'aaa风景区',
+            value: [106.00,31.55,40],//[经度,维度,数量]
+        },
+        {
+            regionName: '阆中市',
+            name: 'abb风景区',
+            value: [106.00,31.65,20],
+        },
+        {
+            regionName: '阆中市',
+            name: 'accc风景区',
+            value: [106.034,31.50,20],
+        }
+    ];
+
+    // 获取地图
     $.get('/s/nanchong.json', function (nanchongJson) {
+        //只展示当前区县
+        nanchongJson.features.map((item,index)=>{
+            if(item.properties.name != target){
+                delete nanchongJson.features[index]
+            }
+        });
         echarts.registerMap('nanchong', nanchongJson);
         var myChart = echarts.init(document.getElementById('main'));
         option = {
             tooltip: {
-                formatter: function (params, ticket, callback) {
-                    return params.seriesName + '<br />' + params.name + '：' + params.value
+                trigger: 'item',
+                formatter: function (params) {
+                    return params.name;
                 }
             },
-
-            legend: {
-                orient: 'vertical',
-                left: 'left',
-                data:['全景图数量']
-            },
-            visualMap: {
-                min: 0,
-                max: 10,
-                left: 'left',
-                top: 'bottom',
-                text: ['高','低'],           // 文本，默认为数值文本
-                calculable: true,
-                inRange: {
-                    color: ['lightskyblue','yellow', 'orangered']
+            geo: {
+                map: 'nanchong',
+                label: {
+                    emphasis: {
+                        show: false
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        areaColor: '#56c0d9',
+                        borderColor: '#56c0d9'
+                    },
+                    emphasis: {
+                        areaColor: '#56c0d9'
+                    }
                 }
             },
             series: [
                 {
-                    name: '全景图数量',
-                    type: 'map',
-                    mapType: 'nanchong',
-                    showLegendSymbol : false,
+                    type: 'effectScatter',
+                    coordinateSystem: 'geo',
                     data: dataList,
+                    symbolSize: 12,
+                    zoom: 1.9,
                     roam: false,
-                    zoom: 1.23,
-                    itemStyle: {
+                    showLegendSymbol : false,
+                    label: {
                         normal: {
-                            label: {
-                                show: true,
-                                formatter:function(params){
-                                    return params.name+"("+params.value+")";
-                                }
-
-                            },
-
+                            show: false
                         },
                         emphasis: {
-                            label: {
-                                show: true
-                            }
+                            show: false
+                        }
+                    },
+                    itemStyle: {
+                        emphasis: {
+                            borderColor: '#fff',
+                            borderWidth: 1
                         }
                     }
-
                 }
             ]
         };
-        myChart.setOption(option);
-        myChart.on('click', function (params) {
-            window.location.href="/index/map/index?area="+params.name
-        });
+        if (option && typeof option === "object") {
+            myChart.setOption(option, true);
+            myChart.on('click', function (params) {
+                //点击时的事件,排除点击标注点之外的区域
+                if(params.name!=target){
+                    //点击标注操作事件写在这里
+                    console.log(params.name,'点击了这里')
+                }
+            });
+        }
     });
-
 </script>
-
 </body>
-
 </html>
