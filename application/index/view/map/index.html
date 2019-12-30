@@ -60,16 +60,19 @@
         {
             regionName: '阆中市',
             name: 'aaa风景区',
+            url: 'https://www.baidu.com/',
             value: [106.00,31.55,40],//[经度,维度,数量]
         },
         {
             regionName: '阆中市',
             name: 'abb风景区',
+             url: 'https://www.baidu.com/',
             value: [106.00,31.65,20],
         },
         {
             regionName: '阆中市',
             name: 'accc风景区',
+             url: 'https://www.baidu.com/',
             value: [106.034,31.50,20],
         }
     ];
@@ -88,7 +91,7 @@
             tooltip: {
                 trigger: 'item',
                 formatter: function (params) {
-                    return params.name;
+                    return "<a href='"+params.url+"'>"+params.name+"</a>";
                 }
             },
             geo: {
