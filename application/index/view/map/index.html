@@ -92,7 +92,7 @@
                 trigger: 'item',
                 formatter: function (params) {
                     console.log(params)
-                    return "<a href='"+params.data.url+"'>"+params.data.name +params.data.regionName+"</a>";
+                    return "<a href='"+params.data.url+"' onclick='href_to(\"'+params.data.url+'\")'>"+params.data.name +params.data.regionName+"</a>";
                 },
                 hideDelay:1000
 
@@ -151,6 +151,11 @@
             });
         }
     });
+    
+    function href_to(url) {
+        console.log(url)
+      window.location.href=url
+    }
 </script>
 </body>
 </html>
