@@ -120,21 +120,19 @@
                 itemStyle: {
                     normal: {
                         areaColor: '#56c0d9',
-                        borderColor: '#56c0d9'
+                        borderColor: '#56c0d9',
+                          label: {
+                                                                                                    show: true,
+                                                                                                    formatter:function(params){
+                                                                                                        return params.name+"("+params.value+")";
+                                                                                                    }
+
+                                                                                                },
                     },
                     emphasis: {
                         areaColor: '#56c0d9'
                     },
-                          normal: {
-                                                                        label: {
-                                                                            show: true,
-                                                                            formatter:function(params){
-                                                                                return params.name+"("+params.value+")";
-                                                                            }
 
-                                                                        },
-
-                                                                    },
 
                 }
             },
