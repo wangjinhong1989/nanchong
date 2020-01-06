@@ -96,7 +96,7 @@
                 formatter: function (params) {
 
                     var html="<h1>"+params.data.name+"</h1>";
-                    html=html+'<image src="'+params.data.url+'" style="width: 100px;"><br>';
+                    html=html+'<image src="'+params.data.cover+'" style="width: 100px;"><br>';
                     html=html+"<p>"+params.data.description+'</p>';
                     return "<a    onclick='href_to(\""+params.data.url+"\")'>"+html+"</a>";
                 },
