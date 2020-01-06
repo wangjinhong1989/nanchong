@@ -149,7 +149,17 @@
                         emphasis: {
                             borderColor: '#fff',
                             borderWidth: 1
-                        }
+                        },
+                           normal: {
+                                                    label: {
+                                                        show: true,
+                                                        formatter:function(params){
+                                                            return params.name+"("+params.value+")";
+                                                        }
+
+                                                    },
+
+                                                },
                     }
                 }
             ]
