@@ -44,7 +44,7 @@
     <div id="main"></div>
 </div>
 
-<iframe src="" id="iFrame"  style="display: none" width="100%" height="100%"></iframe>
+<iframe src="" id="iFrame" width="100%" height="100%"></iframe>
 <script type="text/javascript">
     //获取当前区县名称
     function getUrlParamCN(name) {
@@ -79,6 +79,7 @@
         }
     ];
 
+    dataList=JSON.parse('{$dataList}');
     // 获取地图
     $.get('/s/nanchong.json', function (nanchongJson) {
         //只展示当前区县
@@ -94,7 +95,10 @@
                 trigger: 'item',
                 formatter: function (params) {
 
-                    return "<a    onclick='href_to(\""+params.data.url+"\")'>"+params.data.name +params.data.regionName+"</a>";
+                    var html="<h1>"+params.data.name+"</h1>";
+                    html=html+'<image src="'+params.data.cover+'" style="width: 100px;"><br>';
+                    html=html+"<p>"+params.data.description+'</p>';
+                    return "<a    onclick='href_to(\""+params.data.url+"\")'>"+html+"</a>";
                 },
                 enterable:true,
                 hideDelay:1000
@@ -157,9 +161,10 @@
     
     function href_to(url) {
 
-        $("#iFrame").show();
-        $("#main").hide();
-        showIframe("https://www.expoon.com/e/bcf96o8rjcm/panorama?from=singlemessage&isappinstalled=0","100%","100%")
+        //$("#main").hide();
+        //showIframe("https://www.expoon.com/e/bcf96o8rjcm/panorama?from=singlemessage&isappinstalled=0","100%","100%")
+
+        window.location.href=url;
     }
 
     function showIframe(url,w,h){

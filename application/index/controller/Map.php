@@ -27,11 +27,14 @@ class Map extends Frontend
 
         foreach ($lists as $key=>$value){
             $lists[$key]["name"]=$value["title"];
+            $lists[$key]["regionName"]=$value["title"];
             $lists[$key]["lat"]=$value["jingdu"];
             $lists[$key]["lng"]=$value["weidu"];
             $lists[$key]["link"]=$value["url"];
+            $lists[$key]["url"]=$value["url"];
             $lists[$key]["cover"]=$value["image"];
             $lists[$key]["describe"]=$value["description"];
+            $lists[$key]["value"]=[$value['jingdu'],$value['weidu']];
         }
         $this->assign('dataList', \GuzzleHttp\json_encode($lists,JSON_UNESCAPED_UNICODE));
         return $this->view->fetch("index");
