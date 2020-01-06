@@ -124,7 +124,17 @@
                     },
                     emphasis: {
                         areaColor: '#56c0d9'
-                    }
+                    },
+                          normal: {
+                                                                        label: {
+                                                                            show: true,
+                                                                            formatter:function(params){
+                                                                                return params.name+"("+params.value+")";
+                                                                            }
+
+                                                                        },
+
+                                                                    },
 
                 }
             },
@@ -150,16 +160,7 @@
                             borderColor: '#fff',
                             borderWidth: 1
                         },
-                           normal: {
-                                                    label: {
-                                                        show: true,
-                                                        formatter:function(params){
-                                                            return params.name+"("+params.value+")";
-                                                        }
 
-                                                    },
-
-                                                },
                     }
                 }
             ]
