@@ -196,6 +196,8 @@
     var objW=$("#iFrame").width();//浮动对象的宽度
     var objT=Number(st)+(Number(ch)-Number(objH))/2;
     var objL=Number(sl)+(Number(cw)-Number(objW))/2;
+
+    $("boyd").css("display","none");
     $("#iFramee").css('left',objL);
     $("#iFrame").css('top',objT);
     $("#iFrame").attr("src", url)
