@@ -138,29 +138,21 @@
             },
             series: [
                 {
-                    type: 'effectScatter',
-                    coordinateSystem: 'geo',
-                    data: dataList,
-                    symbolSize: 12,
-                    zoom: 1.9,
-                    roam: false,
-                    showLegendSymbol : true,
-                    label: {
-                        normal: {
-                            show: false
-                        },
-                        emphasis: {
-                            show: false
-                        }
-                    },
-                    itemStyle: {
-                        emphasis: {
-                            borderColor: '#ABE',
-                            borderWidth: 1
-                        },
+
+                        name: '全景图数量',
+                                     type: 'map',
+                                      mapType: 'nanchong',
+                                      showLegendSymbol : false,
+                                      data: dataList,
+                                      roam: false ,
+
+                                      label:{show:false},
+                                      itemStyle:{
+                                         shadowColor: 'rgba(1, 2, 3, 0.8)',
+                                         shadowBlur: 10,
 
 
-                    }
+                                      }
                 }
             ]
         };
