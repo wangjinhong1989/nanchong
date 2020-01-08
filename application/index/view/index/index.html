@@ -83,18 +83,30 @@ background-attachment: fixed;">
 
             series: [
                 {
-                    name: '全景图数量',
-                    type: 'scatter',
-                    coordinateSystem: 'geo',
-                    showLegendSymbol : false,
-                    data: dataList,
-                    roam: false,
-                    zoom: 1.23,
+                 name: '全景图数量',
+                                     type: 'map',
+                                     mapType: 'nanchong',
+                                     showLegendSymbol : false,
+                                     data: dataList,
+                                     roam: false,
+                                     zoom: 1.23,
+                                     itemStyle: {
+                                         normal: {
+                                             label: {
+                                                 show: true,
+                                                 formatter:function(params){
+                                                     return params.name+"("+params.value+")";
+                                                 }
 
-                    label:{
-                        show:true,
-                        formatter:"{a} 1 {b} 1 {c}"
-                    },
+                                             },
+
+                                         },
+                                         emphasis: {
+                                             label: {
+                                                 show: true
+                                             }
+                                         }
+                                     }
 
                 }
             ]
