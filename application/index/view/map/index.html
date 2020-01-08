@@ -201,10 +201,11 @@
     $("#iFrame").attr("src", url)
     }
 
-    $("#iFrame").load(function(){
-    var mainheight = $(this).contents().find("body").height()+30;
-    $(this).height(mainheight);
-    });
+ $(window.parent.document).find("#iFrame").load(function(){
+ var main = $(window.parent.document).find("#iFrame");
+ var thisheight = $(document).height()+30;
+ main.height(thisheight);
+ });
 
 </script>
 </body>
