@@ -44,7 +44,7 @@
     <div id="main"></div>
 </div>
 
-<iframe width="710" height="440" frameborder="0" name="ExpoonPanorama" allowfullscreen="true" scrolling="no" src="https://www.expoon.com/e/867icf9dpff/panorama"></iframe>
+<iframe id="iFrame" ></iframe>
 
 <script type="text/javascript">
     //获取当前区县名称
@@ -166,7 +166,7 @@
                 //点击时的事件,排除点击标注点之外的区域
                 if(params.name!=target){
                     //点击标注操作事件写在这里
-                    console.log(params.name,'点击了这里')
+                    showIframe(params.url,"100%","100%")
                 }
             });
         }
@@ -184,7 +184,7 @@
     //添加iframe
     var if_w = w;
     var if_h = h;
-    $("<iframe width='" + if_w + "' height='" + if_h + "' id=‘iFrame' name='iFrame' style='position:absolute;z-index:4;' frameborder='no' marginheight='0' marginwidth='0' allowTransparency='true'></iframe>").prependTo('body');
+    $("#iFrame").prependTo('body');
     //iframe屏幕适应宽高设置
     var st=document.documentElement.scrollTop|| document.body.scrollTop;//滚动条距顶部的距离
     var sl=document.documentElement.scrollLeft|| document.body.scrollLeft;//滚动条距左边的距离
