@@ -81,26 +81,27 @@ background-attachment: fixed;">
 
 
                 regions: [{
-                    name: '阆中市XXX',
+                    name: '阆中市',
                     itemStyle: {
                         show: true,
-                        color:"#f99"
-                    },
-                    label: {
-                        show: false,
-                        normal: {
-                            show: true,
-                            formatter: function (params) {
+                        color:"#f99",
+                             label: {
+                                                show: false,
+                                                normal: {
+                                                    show: true,
+                                                    formatter: function (params) {
 
-                                return "assss";
-                                return params.data.seriesName + ' : ' + params.data.name + '：' + params.data.value
-                            },
-                            color:"#BBB",
-                            position:"inside",
-                        },
-                        position:"inside",
-                        color:"#0FF"
+                                                        return "assss";
+                                                        return params.data.seriesName + ' : ' + params.data.name + '：' + params.data.value
+                                                    },
+                                                    color:"#BBB",
+                                                    position:"inside",
+                                                },
+                                                position:"inside",
+                                                color:"#0FF"
+                                            },
                     },
+
                 }],
             },
 
