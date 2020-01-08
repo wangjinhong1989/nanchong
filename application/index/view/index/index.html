@@ -78,51 +78,47 @@ background-attachment: fixed;">
                 label: {
                     normal:{
                         show: true,
-                        formatter:'{b}: {@score}'
+                        formatter:'{b}: {b}'
                     },
                     show: true,
-                    formatter:'{b}: {@score}'
+                    formatter:'{a} {b}'
 
 
                 },
-                itemStyle: {
-                    normal: {
-                        borderWidth:"5px",
-                        shadowColor: 'rgba(3, 3, 3, 0.8)',
-                        shadowBlur: 20,
-                        shadowOffsetX:10
-                    },
-                    emphasis: {
-                        label: {
-                            show: true
-                        }
-                    }
-                },
+                // itemStyle: {
+                //     normal: {
+                //         borderWidth:"5px",
+                //         shadowColor: 'rgba(3, 3, 3, 0.8)',
+                //         shadowBlur: 20,
+                //         shadowOffsetX:10
+                //     },
+                //     emphasis: {
+                //         label: {
+                //             show: true
+                //         }
+                //     }
+                // },
                 borderWidth:"5px",
                 shadowColor: 'rgba(3, 3, 3, 0.8)',
                 shadowBlur: 20,
                 shadowOffsetX:10,
-                regions: [{
-                    name: '阆中市',
-                    itemStyle: {
-                        normal: {
-                            areaColor: 'red',
-                            color: 'red',
-                        }
-                    },
-                    formatter:'{b}: {@score}'
-                }],
+                // regions: [{
+                //     name: '阆中市',
+                //     itemStyle: {
+                //         normal: {
+                //             areaColor: 'red',
+                //             color: 'red',
+                //         }
+                //     },
+                //     formatter:'{b}: {@score}'
+                // }],
             },
 
             series: [
                 {
                     name: '全景图数量',
-                    // type: 'map',
-                    // mapType: 'nanchong',
-
                     type: 'scatter',
                     coordinateSystem: 'geo',
-
                     showLegendSymbol : false,
                     data: dataList,
                     roam: false,
