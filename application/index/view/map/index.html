@@ -81,6 +81,15 @@
     ];
 
     dataList=JSON.parse('{$dataList}');
+
+
+    $.each(dataList,function(index,value) {
+
+        dataList[index]["label"]={show:true,formatter:"{b}("+value.value+")",color:"#fff"};
+        dataList[index]["itemStyle"]={areaColor:"#FAC"};
+
+    });
+
     // 获取地图
     $.get('/s/nanchong.json', function (nanchongJson) {
         //只展示当前区县
