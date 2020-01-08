@@ -116,8 +116,12 @@ background-attachment: fixed;">
                     },
                     label: {
                         show: true,
-                        NAME:'{a} {b}',
-                        formatter: "BBBBB",
+                        normal: {
+                            formatter: function (params) {
+                                return params.seriesName + ' : ' + params.name + '：' + params.value
+                            },
+                            position:"inside",
+                        },
                         position:"inside",
                         color:"#0FF"
                     },
