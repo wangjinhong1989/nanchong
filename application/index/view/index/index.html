@@ -75,23 +75,23 @@ background-attachment: fixed;">
 
             geo: {
                 map: 'nanchong',
+                label: {
+                    show: true,
+                    formatter:function(params){
+                        return params.name+"("+params.value+")";
+                    }
+
+                },
+                borderWidth:"5px",
+                shadowColor: 'rgba(3, 3, 3, 0.8)',
+                shadowBlur: 20,
+                shadowOffsetX:10,
                 regions: [{
                     name: '阆中市',
                     itemStyle: {
                         normal: {
                             areaColor: 'red',
                             color: 'red',
-                            label: {
-                                show: true,
-                                formatter:function(params){
-                                    return params.name+"("+params.value+")";
-                                }
-
-                            },
-                            borderWidth:"5px",
-                            shadowColor: 'rgba(3, 3, 3, 0.8)',
-                            shadowBlur: 20,
-                            shadowOffsetX:10
                         }
                     }
                 }],
