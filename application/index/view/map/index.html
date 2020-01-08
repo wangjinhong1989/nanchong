@@ -85,7 +85,7 @@
 
     $.each(dataList,function(index,value) {
 
-        dataList[index]["label"]={show:true,formatter:"{b}("+value.value+")",color:"#fff"};
+        dataList[index]["label"]={show:true,formatter:"{b}("+value.name+")",color:"#000"};
         dataList[index]["itemStyle"]={areaColor:"#FAC"};
 
     });
@@ -114,45 +114,22 @@
                 hideDelay:1000
 
             },
-            geo: {
-                map: 'nanchong',
-                showLegendSymbol : true,
-                label: {
-                    emphasis: {
-                        show: false
-                    },
-                    normal: {
-                        show: true
-                     },
-                     formatter: [
-                                 '{a|这段文本采用样式a}',
-                                 '{b|这段文本采用样式b}这段用默认样式{x|这段用样式x}'
-                             ].join('\n')
-                },
-                itemStyle: {
 
-                       shadowColor: 'rgba(1, 2, 3, 0.8)',
-                       shadowBlur: 10,
-
-                }
-            },
             series: [
                 {
 
                         name: '全景图数量',
-                                     type: 'map',
-                                      mapType: 'nanchong',
-                                      showLegendSymbol : false,
-                                      data: dataList,
-                                      roam: false ,
+                        type: 'map',
+                        mapType: 'nanchong',
+                        showLegendSymbol : false,
+                        data: dataList,
+                        roam: false ,
 
-                                      label:{show:false},
-                                      itemStyle:{
-                                         shadowColor: 'rgba(1, 2, 3, 0.8)',
-                                         shadowBlur: 10,
-
-
-                                      }
+                        label:{show:false},
+                        itemStyle:{
+                         shadowColor: 'rgba(1, 2, 3, 0.8)',
+                         shadowBlur: 10,
+                        }
                 }
             ]
         };
