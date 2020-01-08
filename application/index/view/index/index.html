@@ -76,21 +76,17 @@ background-attachment: fixed;">
             geo: {
                 map: 'nanchong',
                 label: {
-                    show: true,
-                    formatter:function(params){
-                        return params.name+"("+params.value+")";
+                    normal:{
+                        show: true,
+                        formatter:function(params){
+                            return params.name+"("+params.value+")";
+                        }
                     }
+
 
                 },
                 itemStyle: {
                     normal: {
-                        label: {
-                            show: true,
-                            formatter:function(params){
-                                return params.name+"("+params.value+")";
-                            }
-
-                        },
                         borderWidth:"5px",
                         shadowColor: 'rgba(3, 3, 3, 0.8)',
                         shadowBlur: 20,
