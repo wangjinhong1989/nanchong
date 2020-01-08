@@ -85,7 +85,7 @@
 
     $.each(dataList,function(index,value) {
 
-        dataList[index]["label"]={show:true,formatter:"{b}("+value.name+")",color:"#000"};
+        dataList[index]["label"]={show:true,formatter:"{b}("+value.value+")",color:"#fff"};
         dataList[index]["itemStyle"]={areaColor:"#FAC"};
 
     });
@@ -114,7 +114,11 @@
                 hideDelay:1000
 
             },
+            geo: {
+                map: 'nanchong',
+                showLegendSymbol : false,
 
+            },
             series: [
                 {
 
@@ -123,13 +127,7 @@
                         mapType: 'nanchong',
                         showLegendSymbol : false,
                         data: dataList,
-                        roam: true ,
-
-                        label:{show:true},
-                        itemStyle:{
-                         shadowColor: 'rgba(1, 2, 3,0)',
-                         shadowBlur: 10,
-                        }
+                        roam: false ,
                 }
             ]
         };
