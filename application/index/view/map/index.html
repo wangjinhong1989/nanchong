@@ -44,7 +44,7 @@
     <div id="main"></div>
 </div>
 
-<iframe id="iFrame" width="100%" height="100%" frameborder="0" name="ExpoonPanorama" allowfullscreen="true" scrolling="no" src=""></iframe>
+<iframe id="iFrame"  style="position:fixed;top:0;left: 0 " width="100%" height="100%" frameborder="0" name="ExpoonPanorama" allowfullscreen="true" scrolling="no" src=""></iframe>
 
 <script type="text/javascript">
     //获取当前区县名称
@@ -183,8 +183,6 @@
     }
 
     function showIframe(url,w,h){
-    $("#iFramee").css('left',0);
-    $("#iFrame").css('top',0);
     $("#iFrame").attr("src", url)
     }
 
