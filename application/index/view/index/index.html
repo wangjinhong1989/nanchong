@@ -93,14 +93,14 @@ background-attachment: fixed;">
                 //     }
                 // },
                 borderWidth:"5px",
-                shadowColor: 'rgba(3, 3, 3, 0.8)',
+                // shadowColor: 'rgba(3, 3, 3, 0.8)',
                 shadowBlur: 20,
                 shadowOffsetX:10,
                 regions: [{
                     name: '阆中市',
                     label: {
                         show: true,
-                        formatter:'{a}__{b}__{c}',
+                        formatter:'{a}__{b}__{c} @[0]',
 
                     },
                 }],
@@ -115,11 +115,6 @@ background-attachment: fixed;">
                     data: dataList,
                     roam: false,
                     zoom: 1.23,
-                    markPoint:{
-                        label:{
-                            formatter:'{a}: {b}'
-                        }
-                    }
 
 
                 }
