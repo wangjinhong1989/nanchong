@@ -84,24 +84,23 @@ background-attachment: fixed;">
                     name: '阆中市',
                     itemStyle: {
                         show: true,
-                        color:"#f99",
-                             label: {
-                                                show: false,
-                                                normal: {
-                                                    show: true,
-                                                    formatter: function (params) {
-
-                                                        return "assss";
-                                                        return params.data.seriesName + ' : ' + params.data.name + '：' + params.data.value
-                                                    },
-                                                    color:"#BBB",
-                                                    position:"inside",
-                                                },
-                                                position:"inside",
-                                                color:"#0FF"
-                                            },
+                        color:"#f99"
                     },
+                    label: {
+                        show: true,
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
 
+                                return "assss";
+                                return params.data.seriesName + ' : ' + params.data.name + '：' + params.data.value
+                            },
+                            color:"#BBB",
+                            position:"inside",
+                        },
+                        position:"inside",
+                        color:"#0FF"
+                    },
                 }],
             },
 
