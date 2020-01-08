@@ -100,6 +100,9 @@ background-attachment: fixed;">
                     color:"#0F0",
                     position:"inside"
                 },
+                itemStyle: {
+                    show: false,
+                },
 
                 borderWidth:"5px",
                 // shadowColor: 'rgba(3, 3, 3, 0.8)',
@@ -109,18 +112,11 @@ background-attachment: fixed;">
                     name: '阆中市',
                     itemStyle: {
                         show: true,
-                        formatter: function (params, ticket, callback) {
-                            console.log(params);
-                            return params.seriesName + '<br />' + params.name + '：' + params.value
-                        },
                         color:"#f99"
                     },
                     label: {
                         show: true,
-                        formatter: function (params, ticket, callback) {
-                            console.log(params);
-                            return params.seriesName + '<br />' + params.name + '：' + params.value
-                        },
+                        formatter: "BBBBB",
                         position:"inside",
                         color:"#0FF"
                     },
