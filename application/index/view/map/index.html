@@ -179,22 +179,12 @@
         //$("#main").hide();
         //showIframe("https://www.expoon.com/e/bcf96o8rjcm/panorama?from=singlemessage&isappinstalled=0","100%","100%")
 
-        window.location.href=url;
+        window.location.href="/index/map/";
     }
 
-    function showIframe(url,w,h){
-        $("#iFrame").attr("z-index", 10000);
-        $(".footer_123").css("display","none");
-        $(".nav_123").css("display","none");
-        $(".map").css("display","none");
-        $("#iFrame").attr("src", url)
+    function showIframe(url){
+        href_to(url)
     }
-
- $(window.parent.document).find("#iFrame").load(function(){
- var main = $(window.parent.document).find("#iFrame");
- var thisheight = $(document).height()+30;
- main.height(thisheight);
- });
 
 </script>
 </body>

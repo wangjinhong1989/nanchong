@@ -54,4 +54,14 @@ class Map extends Frontend
 
         echo \GuzzleHttp\json_encode($data,JSON_UNESCAPED_UNICODE);
     }
+
+
+    public function detail(){
+
+
+        $url=$this->request->request("url","");
+        $this->assign("url",$url);
+        return $this->view->fetch("detail");
+    }
+
 }
