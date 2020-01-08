@@ -75,11 +75,7 @@ background-attachment: fixed;">
 
             geo: {
                 map: 'nanchong',
-                label: {
-                    show: true,
-                    formatter:'{a}__{b}__{c}',
-                    color : "#fff"
-                },
+
                 // itemStyle: {
                 //     normal: {
                 //         borderWidth:"5px",
@@ -97,16 +93,14 @@ background-attachment: fixed;">
                 shadowColor: 'rgba(3, 3, 3, 0.8)',
                 shadowBlur: 20,
                 shadowOffsetX:10,
-                // regions: [{
-                //     name: '阆中市',
-                //     itemStyle: {
-                //         normal: {
-                //             areaColor: 'red',
-                //             color: 'red',
-                //         }
-                //     },
-                //     formatter:'{b}: {@score}'
-                // }],
+                regions: [{
+                    name: '阆中市',
+                    label: {
+                        show: true,
+                        formatter:'{a}__{b}__{c}',
+
+                    },
+                }],
             },
 
             series: [
