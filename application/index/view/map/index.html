@@ -184,7 +184,9 @@
 
     function showIframe(url,w,h){
         $("#iFrame").attr("z-index", 100);
-
+        $(".footer_123").css("display","none");
+        $(".nav_123").css("display","none");
+        $(".map").css("display","none");
         $("#iFrame").attr("src", url)
     }
 
