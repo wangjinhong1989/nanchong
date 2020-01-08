@@ -72,20 +72,29 @@ background-attachment: fixed;">
                 left: 'left',
                 data:['全景图数量']
             },
-            regions: [{
-                name: '阆中市',
-                itemStyle: {
-                    normal: {
-                        areaColor: 'red',
-                        color: 'red'
+
+            geo: {
+                map: 'nanchong',
+                regions: [{
+                    name: '阆中市',
+                    itemStyle: {
+                        normal: {
+                            areaColor: 'red',
+                            color: 'red'
+                        }
                     }
-                }
-            }],
+                }],
+            },
+
             series: [
                 {
                     name: '全景图数量',
-                    type: 'map',
-                    mapType: 'nanchong',
+                    // type: 'map',
+                    // mapType: 'nanchong',
+
+                    type: 'scatter',
+                    coordinateSystem: 'geo',
+
                     showLegendSymbol : false,
                     data: dataList,
                     roam: false,
