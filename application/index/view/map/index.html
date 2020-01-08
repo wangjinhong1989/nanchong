@@ -85,7 +85,7 @@
 
     $.each(dataList,function(index,value) {
 
-        dataList[index]["label"]={show:true,formatter:"{b}",color:"#fff"};
+        dataList[index]["label"]={show:true,formatter:"{b}",color:"#fff",align:"right"};
         dataList[index]["itemStyle"]={areaColor:"#FAC"};
 
     });
@@ -139,9 +139,12 @@
                                            },
                                            itemStyle: {
                                                emphasis: {
-                                                   borderColor: '#fff',
+                                                   borderColor: '#3a1',
                                                    borderWidth: 1
                                                },
+                                               normal:{
+                                                   areaColor:"#3a1"
+                                               }
 
                                            }
                 }
