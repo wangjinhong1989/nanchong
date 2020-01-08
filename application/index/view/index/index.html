@@ -101,6 +101,7 @@ background-attachment: fixed;">
                     label: {
                         show: true,
                         formatter: function (params, ticket, callback) {
+                            console.log(params);
                             return params.seriesName + '<br />' + params.name + '：' + params.value
                         },
                         color:"RED"
