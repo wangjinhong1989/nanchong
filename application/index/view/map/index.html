@@ -200,6 +200,12 @@
     $("#iFrame").css('top',objT);
     $("#iFrame").attr("src", url)
     }
+
+    $("#iFrame").load(function(){
+    var mainheight = $(this).contents().find("body").height()+30;
+    $(this).height(mainheight);
+    });
+
 </script>
 </body>
 </html>
