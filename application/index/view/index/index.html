@@ -100,7 +100,9 @@ background-attachment: fixed;">
                     name: '阆中市',
                     label: {
                         show: true,
-                        formatter:'{a}__{b}__{c} @[0]',
+                        formatter: function (params, ticket, callback) {
+                            return params.seriesName + '<br />' + params.name + '：' + params.value
+                        },
                         color:"RED"
                     },
                 }],
