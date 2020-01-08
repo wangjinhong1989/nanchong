@@ -58,7 +58,13 @@ background-attachment: fixed;">
         { name: '西充县', value: 50 },
     ]
 
-    // dataList=JSON.parse('{$dataList}');
+    dataList=JSON.parse('{$dataList}');
+    
+    $.each(dataList,function(index,value) {
+
+        dataList[index]["label"]={show:true,formatter:"{a}({b})",color:"red"};
+        dataList[index]["itemStyle"]={areaColor:"#FAC"};
+    });
     //展示南充地图
     $.get('/s/nanchong.json', function (nanchongJson) {
         echarts.registerMap('nanchong', nanchongJson);
