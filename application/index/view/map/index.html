@@ -121,21 +121,9 @@
                              ].join('\n')
                 },
                 itemStyle: {
-                    normal: {
-                        areaColor: '#56c0d9',
-                        borderColor: '#56c0d9',
-                          label: {
-                                                                                                    show: true,
-                                                                                                    formatter:function(params){
-                                                                                                        return params.name+"("+params.value+")";
-                                                                                                    }
 
-                                                                                                },
-                    },
-                    emphasis: {
-                        areaColor: '#56c0d9'
-                    },
-
+                       shadowColor: 'rgba(1, 2, 3, 0.8)',
+                       shadowBlur: 10,
 
                 }
             },
@@ -161,8 +149,7 @@
                             borderColor: '#ABE',
                             borderWidth: 1
                         },
-                       shadowColor: 'rgba(1, 2, 3, 0.8)',
-                       shadowBlur: 10,
+
 
                     }
                 }
