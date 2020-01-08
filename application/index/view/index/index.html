@@ -58,7 +58,7 @@ background-attachment: fixed;">
         { name: '西充县', value: 50 },
     ]
 
-    dataList=JSON.parse('{$dataList}');
+    // dataList=JSON.parse('{$dataList}');
     //展示南充地图
     $.get('/s/nanchong.json', function (nanchongJson) {
         echarts.registerMap('nanchong', nanchongJson);
@@ -84,12 +84,12 @@ background-attachment: fixed;">
             series: [
                 {
                  name: '全景图数量',
-                                     type: 'map',
-                                     mapType: 'nanchong',
-                                     showLegendSymbol : false,
-                                     data: dataList,
-                                     roam: false,
-                                     zoom:1
+                 type: 'map',
+                  mapType: 'nanchong',
+                  showLegendSymbol : false,
+                  data: dataList,
+                  roam: false,
+                  zoom:1
 
 
 
