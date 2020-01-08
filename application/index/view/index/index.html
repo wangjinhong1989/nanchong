@@ -72,17 +72,15 @@ background-attachment: fixed;">
                 left: 'left',
                 data:['全景图数量']
             },
-            // visualMap: {
-            //     min: 0,
-            //     max: 10,
-            //     left: 'left',
-            //     top: 'bottom',
-            //     text: ['高','低'],           // 文本，默认为数值文本
-            //     calculable: true,
-            //     inRange: {
-            //         color: ['lightskyblue','yellow', 'orangered']
-            //     }
-            // },
+            regions: [{
+                name: '阆中市',
+                itemStyle: {
+                    normal: {
+                        areaColor: 'red',
+                        color: 'red'
+                    }
+                }
+            }],
             series: [
                 {
                     name: '全景图数量',
@@ -112,15 +110,7 @@ background-attachment: fixed;">
                             }
                         }
                     },
-                    regions: [{
-                        name: '阆中市',
-                        itemStyle: {
-                            normal: {
-                                areaColor: 'red',
-                                color: 'red'
-                            }
-                        }
-                    }]
+
 
                 }
             ]
