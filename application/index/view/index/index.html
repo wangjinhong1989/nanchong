@@ -117,13 +117,17 @@ background-attachment: fixed;">
             series: [
                 {
                     name: '全景图数量',
-                    type: 'custom',
+                    type: 'scatter',
                     coordinateSystem: 'geo',
                     showLegendSymbol : false,
                     data: dataList,
                     roam: false,
                     zoom: 1.23,
-
+                    markPoint:{
+                        label:{
+                            formatter:'{a}: {b}'
+                        }
+                    }
 
 
                 }
