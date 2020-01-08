@@ -62,8 +62,40 @@ background-attachment: fixed;">
     
     $.each(dataList,function(index,value) {
 
-        dataList[index]["label"]={show:true,formatter:"{a}({b})",color:"red"};
+        if(value,name=="顺庆区"){
+        dataList[index]["label"]={show:true,formatter:"{a}({b})",color:"#fff"};
         dataList[index]["itemStyle"]={areaColor:"#FAC"};
+        }
+        else if(value.name=="高坪区"){
+            dataList[index]["label"]={show:true,formatter:"{a}({b})",color:"#fff"};
+            dataList[index]["itemStyle"]={areaColor:"#4E1"};
+        }else if(value.name=="嘉陵区"){
+            dataList[index]["label"]={show:true,formatter:"{a}({b})",color:"#fff"};
+            dataList[index]["itemStyle"]={areaColor:"#3FF"};
+        }else if(value.name=="南部县"){
+            dataList[index]["label"]={show:true,formatter:"{a}({b})",color:"#fff"};
+            dataList[index]["itemStyle"]={areaColor:"#CCC"};
+        }else if(value.name=="蓬安县"){
+            dataList[index]["label"]={show:true,formatter:"{a}({b})",color:"#fff"};
+            dataList[index]["itemStyle"]={areaColor:"#BCC"};
+        }else if(value.name=="营山县"){
+            dataList[index]["label"]={show:true,formatter:"{a}({b})",color:"#fff"};
+            dataList[index]["itemStyle"]={areaColor:"#Aa2"};
+        }else if(value.name=="仪陇县"){
+            dataList[index]["label"]={show:true,formatter:"{a}({b})",color:"#fff"};
+            dataList[index]["itemStyle"]={areaColor:"#3a1"};
+        }else if(value.name=="阆中市"){
+            dataList[index]["label"]={show:true,formatter:"{a}({b})",color:"#fff"};
+            dataList[index]["itemStyle"]={areaColor:"#3cc"};
+        }else if(value.name=="西充县"){
+            dataList[index]["label"]={show:true,formatter:"{a}({b})",color:"#fff"};
+            dataList[index]["itemStyle"]={areaColor:"#BBB"};
+        }
+        else
+        {
+        dataList[index]["label"]={show:true,formatter:"{a}({b})",color:"#fff"};
+        dataList[index]["itemStyle"]={areaColor:"#FAC"};
+        }
     });
     //展示南充地图
     $.get('/s/nanchong.json', function (nanchongJson) {
