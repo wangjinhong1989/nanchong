@@ -117,6 +117,16 @@
             geo: {
                 map: 'nanchong',
                 showLegendSymbol : false,
+                         itemStyle: {
+                                                               emphasis: {
+                                                                   borderColor: '#3a1',
+                                                                   borderWidth: 1
+                                                               },
+                                                               normal:{
+                                                                   areaColor:"#3a1"
+                                                               }
+
+                                                           }
 
             },
             series: [
@@ -137,16 +147,7 @@
                                                    show: false
                                                }
                                            },
-                                           itemStyle: {
-                                               emphasis: {
-                                                   borderColor: '#3a1',
-                                                   borderWidth: 1
-                                               },
-                                               normal:{
-                                                   areaColor:"#3a1"
-                                               }
 
-                                           }
                 }
             ]
         };
