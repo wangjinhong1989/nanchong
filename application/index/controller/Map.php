@@ -37,6 +37,7 @@ class Map extends Frontend
             $lists[$key]["value"]=[$value['jingdu'],$value['weidu']];
         }
         $this->assign('dataList', \GuzzleHttp\json_encode($lists,JSON_UNESCAPED_UNICODE));
+        $this->assign('area', $area);
         return $this->view->fetch("index");
     }
 
