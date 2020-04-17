@@ -98,7 +98,7 @@ background-attachment: fixed;">
         }
     });
     //展示南充地图
-    $.get('/s/result.json', function (nanchongJson) {
+    $.get('/s/nanchong_bak.json', function (nanchongJson) {
         echarts.registerMap('nanchong', nanchongJson);
         var myChart = echarts.init(document.getElementById('main'));
         option = {
