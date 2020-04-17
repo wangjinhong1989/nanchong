@@ -19,12 +19,32 @@
     <div id="container">test</div>
 <script>
 
-var map = new BMap.Map("container");          // 创建地图实例
-var point = new BMap.Point(106.08, 30.78);  // 创建点坐标
-map.centerAndZoom(point, 15);
-map.enableScrollWheelZoom(true);
+// var map = new BMap.Map("container");          // 创建地图实例
+// var point = new BMap.Point(106.08, 30.78);  // 创建点坐标
+// map.centerAndZoom(point, 15);
+// map.enableScrollWheelZoom(true);
+//
+// map.setCurrentCity("四川省南充市"); // 仅当设置城市信息时，MapTypeControl的切换功能才能可用
 
-map.setCurrentCity("四川省南充市"); // 仅当设置城市信息时，MapTypeControl的切换功能才能可用
+
+var map = new BMap.Map("container",{minZoom : 7, maxZoom : 18 });
+map.centerAndZoom(new BMap.Point(106.08, 30.78), 8);
+map.enableScrollWheelZoom();
+
+var cityName = '四川省南充市';
+map.addControl(new BMap.OverviewMapControl());
+map.enableScrollWheelZoom();
+map.addControl(new BMap.NavigationControl({ type: BMAP_NAVIGATION_CONTROL_LARGE ,anchor: BMAP_ANCHOR_TOP_LEFT, offset: new BMap.Size(40, 250)}));
+var bdary = new BMap.Boundary();
+ bdary.get(cityName, function (rs) {
+ var EN_JW = "180, 90;";
+var NW_JW = "-180, 90;";
+var WS_JW = "-180, -90;";
+ var SE_JW = "180, -90;";
+//4.添加环形遮罩层
+var ply1 = new BMap.Polygon(rs.boundaries[0] + SE_JW + SE_JW + WS_JW + NW_JW + EN_JW + SE_JW, { strokeColor: "none", fillColor: "rgb(246,246,246)", fillOpacity:1, strokeOpacity: 0.5 });
+map.addOverlay(ply1);
+});
 
 </script>
 
