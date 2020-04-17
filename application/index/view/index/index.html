@@ -35,7 +35,6 @@ map.setMapStyle({style:'googlelite'});
 var cityName = '四川省南充市';
 map.addControl(new BMap.OverviewMapControl());
 map.enableScrollWheelZoom();
-map.addControl(new BMap.NavigationControl({ type: BMAP_NAVIGATION_CONTROL_LARGE ,anchor: BMAP_ANCHOR_TOP_LEFT, offset: new BMap.Size(40, 250)}));
 var bdary = new BMap.Boundary();
  bdary.get(cityName, function (rs) {
  var EN_JW = "180, 90;";
