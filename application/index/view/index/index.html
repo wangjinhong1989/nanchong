@@ -29,10 +29,28 @@
 
 
 var map = new BMap.Map("container",{minZoom : 9, maxZoom : 18 });
-map.centerAndZoom(new BMap.Point(106.196842,31.190158), 9);
+// map.centerAndZoom(new BMap.Point(106.196842,31.190158), 9);
+//
+// var marker = new BMap.Marker(new BMap.Point(106.196842,31.190158));        // 创建标注
+// map.addOverlay(marker);
 
-var marker = new BMap.Marker(new BMap.Point(106.196842,31.190158));        // 创建标注
-map.addOverlay(marker);
+var point = new BMapGL.Point(106.196842,31.190158);
+var content = 'label';
+var label = new BMapGL.Label(content, {       // 创建文本标注
+    position: point,
+    offset: new BMapGL.Size(10, 20)
+})
+
+label.addEventListener("click", function(){
+    alert("您点击了标注");
+});
+
+map.addOverlay(label);                        // 将标注添加到地图中
+label.setStyle({                              // 设置label的样式
+    color: '#000',
+    fontSize: '30px',
+    border: '2px solid #1E90FF'
+})
 
 map.enableScrollWheelZoom();
 map.setMapStyle({style:'googlelite'});
