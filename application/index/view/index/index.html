@@ -30,7 +30,7 @@
 var map = new BMap.Map("container",{minZoom : 10, maxZoom : 18 });
 map.centerAndZoom(new BMap.Point(106.196842,31.190158), 10);
 
-var cityName = '四川省南充市西充县';
+var cityName = '四川省南充市';
 map.addControl(new BMap.OverviewMapControl());
 var bdary = new BMap.Boundary();
 bdary.get(cityName, function (rs) {
@@ -96,7 +96,26 @@ for(var i=0; i<dataList.length;i++){
 
 map.setMapStyle({style:'googlelite'});
 
+madeBoundary();
+function madeBoundary() {
+var datas = new Array("四川省南充市南部县-#e4ff02","四川省南充市阆中市-#F4ff02");
+ var bdary = new BMap.Boundary();
+for(var i=0;i<datas.length;i++){
+    getBoundary(datas[i],bdary);
+}
+}
 
+ function getBoundary(data,bdary){
+    data = data.split("-");
+ bdary.get(data[0], function(rs){  //获取行政区域
+ var count = rs.boundaries.length; //行政区域的点有多少个
+var pointArray = [];
+for (var i = 0; i < count; i++) {
+ var ply = new BMap.Polygon(rs.boundaries[i], {strokeWeight: 2, strokeColor: "#ff0000",fillOpacity:0.5,fillColor:data[1]});
+map.addOverlay(ply);
+ }
+})
+}
 
 </script>
 
