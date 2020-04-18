@@ -45,14 +45,14 @@ for(var i=0; i<dataList.length;i++){
     	var point=new BMap.Point(dataList[i]["jingdu"],dataList[i]["weidu"]);
 
     	var marker = new BMap.Marker(point);
-        map.addOverlay(marker);
+
         marker.dataCont = dataList[i];
 
 
 
 
         var label = new BMap.Label(dataList[i]["title"],
-            {position:point,offset:new BMap.Size(15, -25)});
+            {offset:new BMap.Size(15, -25)});
         map.addOverlay(label);
 
           label.setStyle({
@@ -66,6 +66,8 @@ for(var i=0; i<dataList.length;i++){
                       textAlign: "center",
                       width: "120px"
                 });
+
+            marker.addOverlay(label);
          marker.addEventListener("click", function(e){
 
                            var opts = {
