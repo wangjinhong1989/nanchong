@@ -55,7 +55,9 @@ for(var i=0; i<dataList.length;i++){
                             	  enableMessage:true,//设置允许信息窗发送短息
                             	  message:e.target.dataCont["description"]
                             	}
-                            	var html="<a href='"+e.target.dataCont["url"]+"'>"+e.target.dataCont["image"]+"</a>";
+
+                            	var image="<img src='"+e.target.dataCont["image"]+"' style='width: 150px;height: 95px;' >"
+                            	var html="<a href='"+e.target.dataCont["url"]+"'>"+image+"</a>";
                                 var infoWindow = new BMap.InfoWindow(html, opts);  // 创建信息窗口对象
                                 	var point=new BMap.Point(e.target.dataCont["jingdu"],e.target.dataCont["weidu"]);
                        	        map.openInfoWindow(infoWindow,point)
