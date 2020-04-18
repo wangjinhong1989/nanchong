@@ -1,5 +1,6 @@
 
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=Zm3ag8nnrp2tLiNvTYGE7llV3OLZEq04"></script>
+<script type="text/javascript" src="http//api.map.baidu.com/api?type=webgl&v=1.0&ak=Zm3ag8nnrp2tLiNvTYGE7llV3OLZEq04"></script>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,10 +41,12 @@ var label = new BMapGL.Label(content, {       // 创建文本标注
     position: point,
     offset: new BMapGL.Size(10, 20)
 })
-
-label.addEventListener("click", function(){
-    alert("您点击了标注");
-});
+map.addOverlay(label);                        // 将标注添加到地图中
+label.setStyle({                              // 设置label的样式
+    color: '#000',
+    fontSize: '30px',
+    border: '2px solid #1E90FF'
+})
 
 map.addOverlay(label);                        // 将标注添加到地图中
 label.setStyle({                              // 设置label的样式
