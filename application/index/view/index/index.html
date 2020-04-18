@@ -54,7 +54,6 @@ for(var i=0; i<dataList.length;i++){
         var label = new BMap.Label(dataList[i]["title"],
             {offset:new BMap.Size(15, -25)});
 
-
           label.setStyle({
 
                   background: '#ff8355',
@@ -67,7 +66,7 @@ for(var i=0; i<dataList.length;i++){
                       width: "120px"
                 });
 
-              marker.addOverlay(label);
+              marker.setLabel(label);
             map.addOverlay(marker);
          marker.addEventListener("click", function(e){
 
