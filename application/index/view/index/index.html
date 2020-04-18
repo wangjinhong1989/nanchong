@@ -46,8 +46,14 @@ var NW_JW = "-180, 90;";
 var WS_JW = "-180, -90;";
 var SE_JW = "180, -90;";
 //4.添加环形遮罩层
-var ply1 = new BMap.Polygon(rs.boundaries[0] + SE_JW + SE_JW + WS_JW + NW_JW + EN_JW + SE_JW, { strokeColor:"green",fillColor:"none",fillColorOpacity:"0.4", strokeWeight:2, strokeOpacity:0.3 });
-map.addOverlay(ply1);
+// var ply1 = new BMap.Polygon(rs.boundaries[0] + SE_JW + SE_JW + WS_JW + NW_JW + EN_JW + SE_JW, { strokeColor: "none", fillOpacity:1, strokeOpacity: 0.5 });
+// map.addOverlay(ply1);
+
+var count = rs.boundaries.length; //行政区域的点有多少个
+        for(var i = 0; i < count; i++){
+            var ply = new BMap.Polygon(rs.boundaries[i], {strokeWeight: 2, strokeColor: "#ff0000"}); //建立多边形覆盖物
+            map.addOverlay(ply);  //添加覆盖物
+        }
 });
 
 </script>
