@@ -51,7 +51,7 @@ for(var i=0; i<dataList.length;i++){
                            var opts = {
                             	  width : 200,     // 信息窗口宽度
                             	  height: 100,     // 信息窗口高度
-                            	  title : e.target.dataCont["title"] , // 信息窗口标题
+                            	  title :"<span style='color: #0a568c'>"+ e.target.dataCont["title"]+"</span>" , // 信息窗口标题
                             	  enableMessage:true,//设置允许信息窗发送短息
                             	  message:e.target.dataCont["description"]
                             	}
