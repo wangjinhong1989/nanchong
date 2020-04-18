@@ -33,11 +33,10 @@ map.centerAndZoom(new BMap.Point(106.196842,31.190158), 9);
 
  var marker = new BMap.Marker(new BMap.Point(106.196842,31.190158));
 map.addOverlay(marker);
+dataList=JSON.parse('{$dataList}');
+console.log(dataList)
 
-map.setCurrentCity("四川省南充市"); // 仅当设置城市信息时，MapTypeControl的切换功能才能可用
-
-
-	var opts = {
+var opts = {
 	  width : 200,     // 信息窗口宽度
 	  height: 100,     // 信息窗口高度
 	  title : "海底捞王府井店" , // 信息窗口标题
@@ -50,7 +49,7 @@ map.setCurrentCity("四川省南充市"); // 仅当设置城市信息时，MapTy
 	});
 
 
-map.enableScrollWheelZoom();
+map.enableScrollWheelZoom(true);
 map.setMapStyle({style:'googlelite'});
 var cityName = '四川省南充市';
 map.addControl(new BMap.OverviewMapControl());
