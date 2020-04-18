@@ -31,10 +31,8 @@ var html="<p><a href='http://www.baidu.com'>这是自定义弹出层</a></p>";
 var map = new BMap.Map("container",{minZoom : 9, maxZoom : 18 });
 map.centerAndZoom(new BMap.Point(106.196842,31.190158), 9);
 
- var marker = new BMap.Marker(new BMap.Point(106.196842,31.190158));
-map.addOverlay(marker);
+
 dataList=JSON.parse('{$dataList}');
-console.log(dataList)
 
 
 for(var i=0; i<dataList.length;i++){
@@ -49,9 +47,11 @@ for(var i=0; i<dataList.length;i++){
 
     	html="<a href='"+dataList[i]["url"]+"'>"+dataList[i]["content"]+"</a>";
     	var infoWindow = new BMap.InfoWindow(html, opts);  // 创建信息窗口对象
-
-    	console.log(dataList[i])
     	var point=new BMap.Point(dataList[i]["jingdu"],dataList[i]["weidu"]);
+
+    	 var marker = new BMap.Marker(point);
+        map.addOverlay(marker);
+
     	marker.addEventListener("click", function(){
     		map.openInfoWindow(infoWindow,point); //开启信息窗口
     	});
