@@ -36,17 +36,19 @@ map.addOverlay(marker);
 
 map.setCurrentCity("四川省南充市"); // 仅当设置城市信息时，MapTypeControl的切换功能才能可用
 
-var infoBox = new BMapLib.InfoBox(map,html.join(""),{
-	boxStyle:{
-	//	background:"url('tipbox.gif') no-repeat center top"
-		width: "270px"
-		,height: "300px"
-	}
-	,closeIconMargin: "1px 1px 0 0"
-	,enableAutoPan: true
 
-});
-infoBox.open(marker);
+	var opts = {
+	  width : 200,     // 信息窗口宽度
+	  height: 100,     // 信息窗口高度
+	  title : "海底捞王府井店" , // 信息窗口标题
+	  enableMessage:true,//设置允许信息窗发送短息
+	  message:"亲耐滴，晚上一起吃个饭吧？戳下面的链接看下地址喔~"
+	}
+	var infoWindow = new BMap.InfoWindow(html, opts);  // 创建信息窗口对象
+	marker.addEventListener("click", function(){
+		map.openInfoWindow(infoWindow,new BMap.Point(106.196842,31.190158)); //开启信息窗口
+	});
+
 
 map.enableScrollWheelZoom();
 map.setMapStyle({style:'googlelite'});
