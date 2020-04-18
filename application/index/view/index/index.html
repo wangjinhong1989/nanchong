@@ -46,10 +46,8 @@ for(var i=0; i<dataList.length;i++){
 
     	var marker = new BMap.Marker(point);
 
+    	map.addOverlay(marker);
         marker.dataCont = dataList[i];
-
-
-
 
         var label = new BMap.Label(dataList[i]["title"],
             {offset:new BMap.Size(15, -25)});
@@ -66,8 +64,8 @@ for(var i=0; i<dataList.length;i++){
                       width: "120px"
                 });
 
-              marker.setLabel(label);
-            map.addOverlay(marker);
+         marker.setLabel(label);
+
          marker.addEventListener("click", function(e){
 
                            var opts = {
