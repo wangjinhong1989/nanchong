@@ -49,7 +49,7 @@ for(var i=0; i<dataList.length;i++){
 
     	html="<a href='"+dataList[i]["url"]+"'>"+dataList[i]["content"]+"</a>";
     	var infoWindow = new BMap.InfoWindow(html, opts);  // 创建信息窗口对象
-    	marker.addEventListener("click", function(){
+    	marker.addEventListener("click", function(dataList,i){
     		map.openInfoWindow(infoWindow,new BMap.Point(dataList[i]["jingdu"],dataList[i]["weidu"])); //开启信息窗口
     	});
 
