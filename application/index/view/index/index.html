@@ -36,25 +36,37 @@ dataList=JSON.parse('{$dataList}');
 
 for(var i=0; i<dataList.length;i++){
 
-        var opts = {
-    	  width : 200,     // 信息窗口宽度
-    	  height: 100,     // 信息窗口高度
-    	  title : dataList[i]["title"] , // 信息窗口标题
-    	  enableMessage:true,//设置允许信息窗发送短息
-    	  message:dataList[i]["description"]
-    	}
+
 
     	console.log(dataList[i])
-    	var html="<a href='"+dataList[i]["url"]+"'>"+dataList[i]["content"]+"</a>";
-    	var infoWindow = new BMap.InfoWindow(html, opts);  // 创建信息窗口对象
+
+
     	var point=new BMap.Point(dataList[i]["jingdu"],dataList[i]["weidu"]);
 
-    	 var marker = new BMap.Marker(point);
+    	var marker = new BMap.Marker(point);
         map.addOverlay(marker);
+        marker.dataCont = dataList[i];
+         marker.addEventListener("click", function(e){
 
-    	marker.addEventListener("click", function(){
-    		map.openInfoWindow(infoWindow,point); //开启信息窗口
-    	});
+                           var opts = {
+                            	  width : 200,     // 信息窗口宽度
+                            	  height: 100,     // 信息窗口高度
+                            	  title : e.target.dataCont["title"] , // 信息窗口标题
+                            	  enableMessage:true,//设置允许信息窗发送短息
+                            	  message:e.target.dataCont["description"]
+                            	}
+                            	var html="<a href='"+e.target.dataCont["url"]+"'>"+e.target.dataCont["content"]+"</a>";
+                                var infoWindow = new BMap.InfoWindow(html, opts);  // 创建信息窗口对象
+                        this.openInfoWindow(infoWindow);
+                        // //图片加载完毕重绘infowindow
+                        // document.getElementById('imgDemo').onload = function (){
+                        //     infoWindow.redraw();//防止在网速较慢，图片未加载时，生成的信息框高度比图片的总高度小，导致图片部分被隐藏
+                        // }
+                    });
+
+    	// marker.addEventListener("click", function(e){
+    	// 	map.openInfoWindow(infoWindow,point); //开启信息窗口
+    	// });
 
 }
 
