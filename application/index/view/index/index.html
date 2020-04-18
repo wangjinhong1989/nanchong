@@ -30,6 +30,7 @@
 var map = new BMap.Map("container",{minZoom : 10, maxZoom : 18 });
 map.centerAndZoom(new BMap.Point(106.196842,31.190158), 10);
 
+ map.enableScrollWheelZoom(true);
 
 dataList=JSON.parse('{$dataList}');
 
@@ -75,16 +76,16 @@ map.setMapStyle({style:'googlelite'});
 var cityName = '四川省南充市';
 map.addControl(new BMap.OverviewMapControl());
 map.enableScrollWheelZoom();
-var bdary = new BMap.Boundary();
-bdary.get(cityName, function (rs) {
-var EN_JW = "180, 90;";
-var NW_JW = "-180, 90;";
-var WS_JW = "-180, -90;";
-var SE_JW = "180, -90;";
-// //4.添加环形遮罩层
-var ply1 = new BMap.Polygon(rs.boundaries[0] + SE_JW + SE_JW + WS_JW + NW_JW + EN_JW + SE_JW, { strokeColor: "none",fillColor: "#e0e5df", fillOpacity:1, strokeOpacity: 1 });
-map.addOverlay(ply1);
-});
+// var bdary = new BMap.Boundary();
+// bdary.get(cityName, function (rs) {
+// var EN_JW = "180, 90;";
+// var NW_JW = "-180, 90;";
+// var WS_JW = "-180, -90;";
+// var SE_JW = "180, -90;";
+// // //4.添加环形遮罩层
+// var ply1 = new BMap.Polygon(rs.boundaries[0] + SE_JW + SE_JW + WS_JW + NW_JW + EN_JW + SE_JW, { strokeColor: "none",fillColor: "#e0e5df", fillOpacity:1, strokeOpacity: 1 });
+// map.addOverlay(ply1);
+// });
 
 
 </script>
