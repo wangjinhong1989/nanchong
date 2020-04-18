@@ -48,10 +48,23 @@ for(var i=0; i<dataList.length;i++){
         map.addOverlay(marker);
         marker.dataCont = dataList[i];
 
-        var myLabel = new BMap.Label(dataList[i]["title"],
-            {position:point});
-        map.addOverlay(myLabel);
 
+
+
+        var label = new BMap.Label(dataList[i]["title"],
+            {position:point});
+        map.addOverlay(label);
+
+          label.setStyle({
+                    background: '#ff8355',
+                    border: '0px solid "#ff8355"',
+                    borderRadius: "5px",
+                    color: '#fff',
+                    height: "26px",
+                    lineHeight: "26px",
+                    textAlign: "center",
+                    width: "120px"
+                });
          marker.addEventListener("click", function(e){
 
                            var opts = {
