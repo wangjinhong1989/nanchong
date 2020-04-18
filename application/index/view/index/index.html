@@ -44,6 +44,7 @@ for(var i=0; i<dataList.length;i++){
     	  message:dataList[i]["description"]
     	}
 
+    	console.log(dataList[i])
     	var html="<a href='"+dataList[i]["url"]+"'>"+dataList[i]["content"]+"</a>";
     	var infoWindow = new BMap.InfoWindow(html, opts);  // 创建信息窗口对象
     	var point=new BMap.Point(dataList[i]["jingdu"],dataList[i]["weidu"]);
