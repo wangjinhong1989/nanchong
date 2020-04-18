@@ -17,6 +17,12 @@ class Index extends Frontend
         return $this->view->fetch();
     }
 
+    public function test()
+    {
+
+        return $this->view->fetch();
+    }
+
     public function count(){
 
         $model = new \app\admin\model\Map();
