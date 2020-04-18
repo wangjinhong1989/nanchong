@@ -51,7 +51,7 @@ map.addOverlay(ply1);
 
 var count = rs.boundaries.length; //行政区域的点有多少个
         for(var i = 0; i < count; i++){
-            var ply = new BMap.Polygon(rs.boundaries[i], {strokeWeight: 2, strokeColor: "#ff0000"}); //建立多边形覆盖物
+            var ply = new BMap.Polygon(rs.boundaries[i], {strokeWeight: 2, strokeColor: "none",strokeOpacity: 1}); //建立多边形覆盖物
             map.addOverlay(ply);  //添加覆盖物
         }
 });
