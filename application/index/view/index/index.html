@@ -49,8 +49,7 @@ for(var i=0; i<dataList.length;i++){
     	map.addOverlay(marker);
         marker.dataCont = dataList[i];
 
-        var label = new BMap.Label(dataList[i]["title"],
-            {offset:new BMap.Size(15, -25)});
+        var label = new BMap.Label(dataList[i]["title"]);
 
           label.setStyle({
                       border: 'none',
