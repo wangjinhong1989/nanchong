@@ -124,7 +124,6 @@ var pointArray = [];
 for (var i = 0; i < count; i++) {
  var ply = new BMap.Polygon(rs.boundaries[i], {strokeWeight: 2, strokeColor: "#ff0000",fillOpacity:0.5,fillColor:data[1]});
 map.addOverlay(ply);
-map.setViewport(ply.getPath());
  }
 })
 }
