@@ -13,7 +13,7 @@ class Index extends Frontend
 
     public function index()
     {
-        $this->assign("dataList",$this->count());
+        $this->assign("dataList",$this->get_count());
         return $this->view->fetch();
     }
 
@@ -21,6 +21,15 @@ class Index extends Frontend
     {
 
         return $this->view->fetch();
+    }
+
+    public function get_count(){
+
+        $model = new \app\admin\model\Map();
+
+        $data=$model->where([])->select();
+
+        return \GuzzleHttp\json_encode($data,JSON_UNESCAPED_UNICODE);
     }
 
     public function count(){
