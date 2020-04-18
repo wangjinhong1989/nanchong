@@ -58,8 +58,7 @@ class Map extends Frontend
 
 
     public function detail(){
-
-
+        $this->assign("title","全景鉴赏");
         $url=$this->request->request("url","");
         $this->assign("url",$url);
         return $this->view->fetch("detail");

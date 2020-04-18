@@ -14,6 +14,7 @@ class Index extends Frontend
     public function index()
     {
         $this->assign("dataList",$this->get_count());
+        $this->assign("title","南充全景");
         return $this->view->fetch();
     }
 
