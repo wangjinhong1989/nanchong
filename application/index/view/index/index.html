@@ -36,17 +36,26 @@ map.addOverlay(marker);
 dataList=JSON.parse('{$dataList}');
 console.log(dataList)
 
-var opts = {
-	  width : 200,     // 信息窗口宽度
-	  height: 100,     // 信息窗口高度
-	  title : "海底捞王府井店" , // 信息窗口标题
-	  enableMessage:true,//设置允许信息窗发送短息
-	  message:"亲耐滴，晚上一起吃个饭吧？戳下面的链接看下地址喔~"
-	}
-	var infoWindow = new BMap.InfoWindow(html, opts);  // 创建信息窗口对象
-	marker.addEventListener("click", function(){
-		map.openInfoWindow(infoWindow,new BMap.Point(106.196842,31.190158)); //开启信息窗口
-	});
+
+for(var i=0; i<dataList.length;i++){
+
+        var opts = {
+    	  width : 200,     // 信息窗口宽度
+    	  height: 100,     // 信息窗口高度
+    	  title : dataList[i]["title"] , // 信息窗口标题
+    	  enableMessage:true,//设置允许信息窗发送短息
+    	  message:dataList[i]["description"]
+    	}
+
+    	html="<a href='"+dataList[i]["url"]+"'>"+dataList[i]["content"]+"</a>";
+    	var infoWindow = new BMap.InfoWindow(html, opts);  // 创建信息窗口对象
+    	marker.addEventListener("click", function(){
+    		map.openInfoWindow(infoWindow,new BMap.Point(dataList[i]["jingdu"],dataList[i]["weidu"])); //开启信息窗口
+    	});
+
+}
+
+
 
 
 map.enableScrollWheelZoom(true);
