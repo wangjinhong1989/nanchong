@@ -28,8 +28,8 @@
 // map.setCurrentCity("四川省南充市"); // 仅当设置城市信息时，MapTypeControl的切换功能才能可用
 
 
-var map = new BMap.Map("container",{minZoom : 10, maxZoom : 18 });
-map.centerAndZoom(new BMap.Point(106.196842,31.190158), 10);
+var map = new BMap.Map("container",{minZoom : 9.5, maxZoom : 18 });
+map.centerAndZoom(new BMap.Point(106.196842,31.190158), 9.5);
 
 var marker = new BMap.Marker(new BMap.Point(106.196842,31.190158));        // 创建标注
 map.addOverlay(marker);
