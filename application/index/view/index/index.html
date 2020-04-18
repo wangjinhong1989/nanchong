@@ -30,30 +30,11 @@
 
 
 var map = new BMap.Map("container",{minZoom : 9, maxZoom : 18 });
-// map.centerAndZoom(new BMap.Point(106.196842,31.190158), 9);
-//
-// var marker = new BMap.Marker(new BMap.Point(106.196842,31.190158));        // 创建标注
-// map.addOverlay(marker);
+map.centerAndZoom(new BMap.Point(106.196842,31.190158), 9);
 
-var point = new BMapGL.Point(106.196842,31.190158);
-var content = 'label';
-var label = new BMapGL.Label(content, {       // 创建文本标注
-    position: point,
-    offset: new BMapGL.Size(10, 20)
-})
-map.addOverlay(label);                        // 将标注添加到地图中
-label.setStyle({                              // 设置label的样式
-    color: '#000',
-    fontSize: '30px',
-    border: '2px solid #1E90FF'
-})
+addMarker(new BMap.Point(106.196842,31.190158),1);
 
-map.addOverlay(label);                        // 将标注添加到地图中
-label.setStyle({                              // 设置label的样式
-    color: '#000',
-    fontSize: '30px',
-    border: '2px solid #1E90FF'
-})
+
 
 map.enableScrollWheelZoom();
 map.setMapStyle({style:'googlelite'});
@@ -70,6 +51,25 @@ var SE_JW = "180, -90;";
 var ply1 = new BMap.Polygon(rs.boundaries[0] + SE_JW + SE_JW + WS_JW + NW_JW + EN_JW + SE_JW, { strokeColor: "none",fillColor: "#e0e5df", fillOpacity:1, strokeOpacity: 1 });
 map.addOverlay(ply1);
 });
+
+
+function addMarker(point, index){  // 创建图标对象
+    var myIcon = new BMap.Icon("1.gif", new BMap.Size(23, 25), {
+        // 指定定位位置。
+        // 当标注显示在地图上时，其所指向的地理位置距离图标左上
+        // 角各偏移10像素和25像素。您可以看到在本例中该位置即是
+        // 图标中央下端的尖角位置。
+        anchor: new BMap.Size(10, 25),
+        // 设置图片偏移。
+        // 当您需要从一幅较大的图片中截取某部分作为标注图标时，您
+        // 需要指定大图的偏移位置，此做法与css sprites技术类似。
+        imageOffset: new BMap.Size(0, 0 - index * 25)   // 设置图片偏移
+    });
+    // 创建标注对象并添加到地图
+    var marker = new BMap.Marker(point, {icon: myIcon});
+    map.addOverlay(marker);
+}
+
 </script>
 
 </body>
