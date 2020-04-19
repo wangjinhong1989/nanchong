@@ -15,7 +15,8 @@
 
 
     <style type="text/css">
-        #container{width:  350px;margin: 0 auto;height: 400px;}
+        #container{width:  100%;margin: 0 auto;height: 600px;}
+        @media {#container{width:  350px;margin: 0 auto;height: 400px;}}
     </style>
 
     <div id="container">test</div>
@@ -27,8 +28,21 @@
 // map.enableScrollWheelZoom(true);
 //
 
-var map = new BMap.Map("container",{minZoom : 9, maxZoom : 18 });
-map.centerAndZoom(new BMap.Point(106.196842,31.190158), 9);
+if( navigator.userAgent.match(/Android/i)
+        || navigator.userAgent.match(/webOS/i)
+        || navigator.userAgent.match(/iPhone/i)
+        || navigator.userAgent.match(/iPad/i)
+        || navigator.userAgent.match(/iPod/i)
+        || navigator.userAgent.match(/BlackBerry/i)
+        || navigator.userAgent.match(/Windows Phone/i)
+){
+    var map = new BMap.Map("container",{minZoom : 9, maxZoom : 18 });
+    map.centerAndZoom(new BMap.Point(106.196842,31.190158), 9);
+}else {
+    var map = new BMap.Map("container",{minZoom : 10, maxZoom : 18 });
+    map.centerAndZoom(new BMap.Point(106.196842,31.190158), 10);
+}
+
 map.addControl(new BMap.OverviewMapControl());
 var cityName = '四川省南充市';
 
